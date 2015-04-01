@@ -1,0 +1,13 @@
+.pad {
+	width: 120px;
+	height: 120px;
+	background: lightgrey;
+	border: 1px solid black;
+	border-radius: 10px;
+	display: inline-block;
+	margin: 5px;
+}
+
+.pad-name {
+
+}
