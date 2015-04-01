@@ -9,7 +9,9 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         sound_banks.hasMany(models.sounds, {
-          foreignKey : "sb_id"
+          foreignKey : "sb_id",
+          onDelete: "cascade",
+          hook: true
         });
       }
     }
