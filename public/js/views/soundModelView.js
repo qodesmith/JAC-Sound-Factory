@@ -1,7 +1,8 @@
-App.Views.PadModelView = Backbone.View.extend({
+App.Views.SoundModelView = Backbone.View.extend({
+	className: 'pad',
 	initialize: function() {
-		console.log('VIEW: pad view created');
-		this.template = Handlebars.compile( $('#pad-template').html() );
+		console.log('VIEW: sound model view created');
+		this.template = Handlebars.compile( $('#sound-template').html() );
 		this.render();
 	},
 	render: function() {

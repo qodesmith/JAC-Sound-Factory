@@ -1,15 +1,14 @@
 $(function() {
 	console.log('application loaded');
-	// App.router = new App.Routers.Router();
-	// Backbone.history.start();
 
-	App.pads = new App.Collections.PadsCollection;
-	App.padsView = new App.Views.PadsCollectionView({collection: App.pads});
+	App.soundBanks = new App.Collections.SoundBanks;
+	App.soundBanksView = new App.Views.SoundBanksCollectionView({collection: App.soundBanks});
+	App.soundBanks.fetch();
 
-	// App.pad = new App.Models.PadModel({name: 'Test Name'});
-	// App.padView = new App.Views.PadModelView({model: App.pad})
+	App.soundsCollection = new App.Collections.SoundsCollection;
+	App.soundsCollectionView = new App.Views.SoundsCollectionView({collection: App.soundsCollection});
+	App.soundsCollection.fetch();	
 
-	// fetch
 });
 
 
@@ -17,6 +16,5 @@ $(function() {
 var App = {
 	Models: {},
 	Collections: {},
-	Views: {},
-	Routers: {}
+	Views: {}
 };
