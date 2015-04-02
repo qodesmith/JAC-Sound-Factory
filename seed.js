@@ -1,77 +1,275 @@
 var models = require('./models');
 var SoundBank = models.sound_banks;
 var Sound = models.sounds;
+var baseURL = 'http://qodesmith.com/Sounds'
 
 var soundBanks = [
   {
-    name: 'Test Sound Bank',
+    name: '70\'s Drum Kit',
+    type: 'drums',
     sounds: [
       { 
-        name: 'mule chant',
-        url: 'http://www.lettersnstuff.com/sounds/animals/mule.wav'
+        name: 'Crash',
+        url: baseURL + '/70sKit/Crash.wav'
       },
-      {
-        name: 'crowd moan',
-        url: 'http://www.burntair.com/wav/CounterStrikeSounds/various/aww.wav'
+      { 
+        name: 'High Tom',
+        url: baseURL + '/70sKit/High%20Tom.wav'
       },
-      {
-        name: 'goat whine',
-        url: 'http://www.stuffnewspaper.com/sounds/ANIMALS/goat3.wav'
+      { 
+        name: 'Medium Tom',
+        url: baseURL + '/70sKit/Medium%20Tom.wav'
       },
-      {
-        name: 'race car',
-        url: 'http://sep800.mine.nu/files/sounds/racecar%201.wav'
+      { 
+        name: 'Low Tom',
+        url: baseURL + '/70sKit/Floor%20Tom.wav'
       },
-      {
-        name: 'baby cry',
-        url: 'http://www.crefac.net/wav/baby002.wav'
+      { 
+        name: 'Kick',
+        url: baseURL + '/70sKit/Kick.wav'
       },
-      {
-        name: 'frog',
-        url: 'http://www.chiptape.com/chiptape/sounds/medium/frog_att.wav'
+      { 
+        name: 'Snare',
+        url: baseURL + '/70sKit/Snare.wav'
       },
-      {
-        name: 'drum sequence',
-        url: 'http://www.users.globalnet.co.uk/~spufus/drums/hard137.wav'
+      { 
+        name: 'High Hat',
+        url: baseURL + '/70sKit/High%20Hat.wav'
       },
-      {
-        name: 'Chicken',
-        url: 'http://www.davorin.net/d/kura.wav'
-      },
-      {
-        name: 'cow',
-        url: 'http://labs.petegoodman.com/ghetto_blaster/_includes/sfx/worms/CowMoo.wav'
-      },
-      {
-        name: 'splash',
-        url: 'http://bobbiswavcollection.com/bgsplash.wav'
-      },
-      {
-        name: 'clang',
-        url: 'http://www.jibshots.com/multimedia/wrench.wav'
-      },
-      {
-        name: 'burp',
-        url: 'http://www.freesoundvault.com/sounds/sound_fx/burp.wav'
-      },
-      {
-        name: 'car crash',
-        url: 'http://www.boo.net/~rarnold/firesign/sounds/crash.wav'
-      },
-      {
-        name: 'fart',
-        url: 'http://www.darmgas.de/waves/furz025.wav'
-      },
-      {
-        name: 'fart2',
-        url: 'http://izzyweird.com/soundlib1/forced01.wav'
-      },
-      {
-        name: 'glass breaking',
-      url: 'http://insomniaradio.net/audio/production/<Impacts></Impacts>/Glass%20Shatter%20Light%2002.wav'
+      { 
+        name: 'Ride',
+        url: baseURL + '/70sKit/Ride.wav'
       }
     ]
-  }
+  },
+  {
+    name: '808 kit',
+    type: 'drums',
+    sounds: [
+      {
+        name: 'Claps',
+        url: baseURL + '/808kit/Claps.wav'
+      },
+      {
+        name: 'Clave',
+        url: baseURL + '/808kit/Clave.wav'
+      },
+      {
+        name: 'Cow Bell',
+        url: baseURL + '/808kit/Cow%20Bell.wav'
+      },
+      {
+        name: 'High Hat',
+        url: baseURL + '/808kit/High%20Hat.wav'
+      },
+      {
+        name: 'Kick',
+        url: baseURL + '/808kit/Kick.wav'
+      },
+      {
+        name: 'Snare',
+        url: baseURL + '/808kit/Snare.wav'
+      },
+      {
+        name: 'Rim',
+        url: baseURL + '/808kit/Rim.wav'
+      },
+      {
+        name: 'Shaker',
+        url: baseURL + '/808kit/Shaker.wav'
+      }
+    ]
+  },
+  {
+    name: 'Barnyard',
+    type: 'fx',
+    sounds: [
+      {
+        name: 'Chicken',
+        url: baseURL + '/Barnyard/chicken.wav'
+      },
+      {
+        name: 'Cow 1',
+        url: baseURL + '/Barnyard/Cow1.wav'
+      },
+      {
+        name: 'Cow2',
+        url: baseURL + '/Barnyard/Cow2.wav'
+      },
+      {
+        name: 'Goat 1',
+        url: baseURL + '/Barnyard/Goat1.wav'
+      },
+      {
+        name: 'Goat 2',
+        url: baseURL + '/Barnyard/Goat2.wav'
+      },
+      {
+        name: 'Pig Grunt',
+        url: baseURL + '/Barnyard/Pig%20Grunt.wav'
+      },
+      {
+        name: 'Pig Squeal',
+        url: baseURL + '/Barnyard/Pig%20Squeal.wav'
+      },
+      {
+        name: 'Rooster',
+        url: baseURL + '/Barnyard/Rooster.wav'
+      }
+    ]
+  },
+  {
+    name: 'Bathroom',
+    type: 'fx',
+    sounds: [
+      {
+        name: 'Belch 1',
+        url: baseURL + '/Bathroom/Belch1.wav'
+      },
+      {
+        name: 'Belch 2',
+        url: baseURL + '/Bathroom/Belch2.wav'
+      },
+      {
+        name: 'Fart 1',
+        url: baseURL + '/Bathroom/Fart1.wav'
+      },
+      {
+        name: 'Fart 2',
+        url: baseURL + '/Bathroom/Fart2.wav'
+      },
+      {
+        name: 'Toilet Fart 1',
+        url: baseURL + '/Bathroom/Toilet%20Fart1.wav'
+      },
+      {
+        name: 'Toilet Fart 2',
+        url: baseURL + '/Bathroom/Toilet%20Fart2.wav'
+      },
+      {
+        name: 'Toilet Flush',
+        url: baseURL + '/Bathroom/Toilet.wav'
+      },
+      {
+        name: 'Splash Plop',
+        url: baseURL + '/Bathroom/Splash.wav'
+      }
+    ]
+  },
+  {
+    name: 'Dance Kit',
+    type: 'drums',
+    sounds: [
+      {
+        name: 'Crash',
+        url: baseURL + '/DanceKit/Crash.wav'
+      },
+      {
+        name: 'FX Thing',
+        url: baseURL + '/DanceKit/FXD%20thing.wav'
+      },
+      {
+        name: 'Lazer',
+        url: baseURL + '/DanceKit/Lazer.wav'
+      },
+      {
+        name: 'Yea',
+        url: baseURL + '/DanceKit/Yea.wav'
+      },
+      {
+        name: 'Kick',
+        url: baseURL + '/DanceKit/Kick.wav'
+      },
+      {
+        name: 'Snare (short)',
+        url: baseURL + '/DanceKit/Snare%20(short).wav'
+      },
+      {
+        name: 'Snare (long)',
+        url: baseURL + '/DanceKit/Snare%20(long).wav'
+      },
+      {
+        name: 'Open HH',
+        url: baseURL + '/DanceKit/Open%20hh.wav'
+      }
+    ]
+  },
+  {
+    name: 'Tools',
+    type: 'fx',
+    sounds: [
+      {
+        name: 'Air Drill',
+        url: baseURL + '/Tools/Air%20Drill.wav'
+      },
+      {
+        name: 'Chainsaw',
+        url: baseURL + '/Tools/Chainsaw.wav'
+      },
+      {
+        name: 'Drill',
+        url: baseURL + '/Tools/Drill.wav'
+      },
+      {
+        name: 'Electric Motor',
+        url: baseURL + '/Tools/Electric%20Motor.wav'
+      },
+      {
+        name: 'Grinding',
+        url: baseURL + '/Tools/Grinding.wav'
+      },
+      {
+        name: 'Hand Saw',
+        url: baseURL + '/Tools/Hand%20Saw.wav'
+      },
+      {
+        name: 'Jack Hammer',
+        url: baseURL + '/Tools/Jack%20Hammer.wav'
+      },
+      {
+        name: 'Sander',
+        url: baseURL + '/Tools/.wav'
+      }
+    ]
+  },
+  {
+    name: 'Weapons',
+    type: 'fx',
+    sounds: [
+      {
+        name: 'AK47',
+        url: baseURL + '/Weapons/AK47.wav'
+      },
+      {
+        name: 'Explosion',
+        url: baseURL + '/Weapons/Explosion.wav'
+      },
+      {
+        name: 'Loaded Gun',
+        url: baseURL + '/Weapons/Gun%20Loaded.wav'
+      },
+      {
+        name: 'Gunshot 1',
+        url: baseURL + '/Weapons/Gunshot1.wav'
+      },
+      {
+        name: 'Gunshot 2',
+        url: baseURL + '/Weapons/Gunshot2.wav'
+      },
+      {
+        name: 'Gunshot 3',
+        url: baseURL + '/Weapons/Gunshot3.wav'
+      },
+      {
+        name: 'Shank',
+        url: baseURL + '/Weapons/Shank.wav'
+      },
+      {
+        name: 'Shank 2',
+        url: baseURL + '/Weapons/Shank2.wav'
+      }
+    ]
+  },
 ]
 
 var seedDatabase = function () {
