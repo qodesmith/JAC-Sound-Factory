@@ -14,6 +14,5 @@ App.Views.SoundBankModelView = Backbone.View.extend({
 	},
 	poop: function() {
 		console.log('Bank was clicked!');
-	}
-
+	},
 });
