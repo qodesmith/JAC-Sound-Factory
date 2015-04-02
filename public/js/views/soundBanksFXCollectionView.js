@@ -1,5 +1,5 @@
-App.Views.SoundBanksCollectionView = Backbone.View.extend({
-	el: '#test2',
+App.Views.SoundBanksFXCollectionView = Backbone.View.extend({
+	el: '#top8',
 	initialize: function() {
 		console.log('VIEW: sound banks collection view created');
 		this.listenTo(this.collection, 'add', this.renderOne);
@@ -10,7 +10,10 @@ App.Views.SoundBanksCollectionView = Backbone.View.extend({
 	// },
 	renderOne: function(bankModel) {
 		console.log('***********Banks Collection View renderOne');
-		var newBanksView = new App.Views.SoundBankModelView({model: bankModel});
-		this.$el.append(newBanksView.el);
+
+		if (bankModel.type === 'fx') {
+			var newBanksView = new App.Views.SoundBankModelView({model: bankModel});
+			this.$el.append(newBanksView.el);
+		};
 	}
 });
