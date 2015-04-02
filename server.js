@@ -12,6 +12,9 @@ app.use(logger('dev'));
 app.use(bodyParser());
 app.use(express.static(__dirname + '/public'));
 
+/////////////////
+// SOUND BANKS //
+/////////////////
 app.get('/sound_banks', function (req, res){
 	SoundBank
 	.findAll({ include: Sound })
@@ -31,7 +34,7 @@ app.get('/sound_banks/:id', function (req, res){
 	});
 });
 
-app.post('/<sound_banks></sound_banks>', function (req, res) {
+app.post('/sound_banks', function (req, res) {
 	SoundBank
 	.create(req.body)
 	.then(function(soundBank){
@@ -63,6 +66,9 @@ app.delete('sound_banks/:id', function (req, res) {
 	});
 });
 
+////////////
+// SOUNDS //
+////////////
 app.get('/sounds', function (req, res) {
 	Sound
 	.findAll()
