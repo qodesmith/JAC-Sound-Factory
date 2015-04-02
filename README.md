@@ -11,6 +11,8 @@ Cue: JAC SoundFactory!!
 
 The JAC SoundFactory is a composition medium that allows cyber-plebs to create music using a variety of sound libraries as instruments. Do you want to rehash Under Pressure using bathroom sounds? Is your life devoid of a barnyard animals-Katy Perry mashup? Is it Beethoven's 5th in lasers and explosions that you desire? Let JAC SoundFactory feed your exotic aural fetishes.
 
+JAC Soundfactory features the MDN Web Audio API which provides a sound management interface capable of producing 1000 sounds simultaneously without skipping.
+
 Step 1 - ........TBC
 
 
