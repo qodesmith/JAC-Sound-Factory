@@ -15,6 +15,8 @@ app.use(express.static(__dirname + '/public'));
 /////////////////
 // SOUND BANKS //
 /////////////////
+
+// Get all banks
 app.get('/sound_banks', function (req, res){
 	SoundBank
 	.findAll({ include: Sound })
@@ -23,6 +25,7 @@ app.get('/sound_banks', function (req, res){
 	});
 });
 
+// Get single bank
 app.get('/sound_banks/:id', function (req, res){
 	SoundBank
 	.findOne({
@@ -34,6 +37,7 @@ app.get('/sound_banks/:id', function (req, res){
 	});
 });
 
+// Create new bank
 app.post('/sound_banks', function (req, res) {
 	SoundBank
 	.create(req.body)
@@ -42,6 +46,7 @@ app.post('/sound_banks', function (req, res) {
 	});
 });
 
+// Edit bank
 app.put('/sound_banks/:id', function (req, res) {
 	SoundBank
 	.findOne(req.params.id)
@@ -54,6 +59,7 @@ app.put('/sound_banks/:id', function (req, res) {
 	});
 });
 
+// Delete bank
 app.delete('sound_banks/:id', function (req, res) {
 	SoundBank
 	.findOne(req.params.id)
@@ -99,6 +105,7 @@ app.get('/sounds/:id', function (req, res) {
 	});
 });
 
+// Create new sound
 app.post('/sound_banks/:id/sounds', function (req, res){
 	var soundBankId = req.params.id;
 	var soundData = req.body;
@@ -115,6 +122,7 @@ app.post('/sound_banks/:id/sounds', function (req, res){
 	});
 });
 
+// Edit sound
 app.put('/sounds/:id', function (req, res) {
 	Sound
 	.findOne(req.params.id)
@@ -127,6 +135,7 @@ app.put('/sounds/:id', function (req, res) {
 	});
 });
 
+// Delete sound
 app.delete('/sounds/:id', function (req, res) {
 	Sound
 	.findOne(req.params.id)
