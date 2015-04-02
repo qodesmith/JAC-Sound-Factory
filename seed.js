@@ -276,7 +276,8 @@ var seedDatabase = function () {
   soundBanks.forEach(function (soundBankData) {
     SoundBank
       .create({
-        name: soundBankData.name
+        name: soundBankData.name,
+        type: soundBankData.type
       })
       .then(function(soundBank) {
         soundBankData.sounds.forEach(function (soundsData) {
