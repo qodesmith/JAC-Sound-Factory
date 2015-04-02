@@ -1,7 +1,8 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var sound_banks = sequelize.define("sound_banks", {
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    type: DataTypes.STRING
   }, {
 
     timestamps: false,

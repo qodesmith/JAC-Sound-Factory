@@ -1,5 +1,3 @@
-"use strict";
-
 module.exports = {
   up: function(migration, DataTypes, done) {
     	migration.createTable("sound_banks", {
@@ -11,7 +9,10 @@ module.exports = {
     		},
     		name: {
     			type: DataTypes.STRING
-    		}
+    		},
+        type: {
+          type: DataTypes.STRING
+        }
     	}).done(done)
   },
 
