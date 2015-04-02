@@ -69,6 +69,8 @@ app.delete('sound_banks/:id', function (req, res) {
 ////////////
 // SOUNDS //
 ////////////
+
+// Find ALL sounds
 app.get('/sounds', function (req, res) {
 	Sound
 	.findAll()
@@ -77,6 +79,18 @@ app.get('/sounds', function (req, res) {
 	});
 });
 
+// Find sounds in ONE bank
+app.get('/sound_banks/:id/sounds', function (req, res) {
+	SoundBank
+		.findOne({
+			where: {id: req.params.id},
+			include: Sound
+		}).then(function(bank) {
+			res.send(bank.sounds)
+		});
+});
+
+// Find single sound
 app.get('/sounds/:id', function (req, res) {
 	Sound
 	.findOne(req.params.id)
