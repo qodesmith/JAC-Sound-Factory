@@ -8,11 +8,7 @@ $(function() {
 	App.soundBanks = new App.Collections.SoundBanks;
 	App.soundBanksView = new App.Views.SoundBanksCollectionView({collection: App.soundBanks});
 	App.soundBanks.fetch();
-
-
 });
-
-
 
 var App = {
 	Models: {},

@@ -9,6 +9,7 @@ App.Views.SoundBankModelView = Backbone.View.extend({
 		var bankTemplate = this.template(this.model.toJSON());
 		this.$el.html(bankTemplate);
 	},
+	// TODO : will make function
 	events: {
 		'click': 'poop'
 	},

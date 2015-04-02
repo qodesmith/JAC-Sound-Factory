@@ -1,4 +1,5 @@
 App.Views.SoundsCollectionView = Backbone.View.extend({
+	//TODO : make real el !!
 	el: '#test',
 	initialize: function() {
 		console.log('VIEW: sounds collection view created');

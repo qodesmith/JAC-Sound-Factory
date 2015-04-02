@@ -2,7 +2,7 @@ App.Views.SoundModelView = Backbone.View.extend({
 	className: 'pad',
 	initialize: function() {
 		console.log('VIEW: sound model view created');
-		this.template = Handlebars.compile( $('#sound-template').html() );
+		this.template = Handlebars.compile($('#sound-template').html());
 		this.render();
 	},
 	render: function() {
@@ -12,11 +12,7 @@ App.Views.SoundModelView = Backbone.View.extend({
 	play: function() {
 		console.log('pad played');
 	},
-	// compositionKeeper: function() {
-	// 	console.log('pad clicked');
-	// },
 	events: {
-		'click': 'play',
-		// 'click': 'compositionKeeper'
-	},
+		'click': 'play'
+	}
 });

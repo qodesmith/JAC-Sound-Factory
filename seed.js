@@ -2,7 +2,7 @@ var models = require('./models');
 var SoundBank = models.sound_banks;
 var Sound = models.sounds;
 
-var sound_banks = [
+var soundBanks = [
   {
     name: 'Test Sound Bank',
     sounds: [
@@ -75,7 +75,7 @@ var sound_banks = [
 ]
 
 var seedDatabase = function () {
-  sound_banks.forEach(function (soundBankData) {
+  soundBanks.forEach(function (soundBankData) {
     SoundBank
       .create({
         name: soundBankData.name
