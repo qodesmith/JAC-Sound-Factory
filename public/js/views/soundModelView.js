@@ -10,6 +10,7 @@ App.Views.SoundModelView = Backbone.View.extend({
 		this.$el.html(padTemplate);
 	},
 	play: function() {
+		debugger;
 		console.log('pad played');
 	},
 	events: {

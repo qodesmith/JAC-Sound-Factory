@@ -1,11 +1,23 @@
 .pad {
 	width: 120px;
 	height: 120px;
-	background: lightgrey;
+	background: rgba(255,255,255,0.5);
 	border: 1px solid black;
 	border-radius: 10px;
 	display: inline-block;
 	margin: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+/* Change pad color on hover */
+.pad:hover {
+	background: rgba(255,0,0,0.5);
+}
+
+/* Change pad color when clicked, only during the click */
+.pad:active {
+	background: rgba(255,255,255,0.9);
 }
 
 .pad-name {
