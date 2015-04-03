@@ -22,8 +22,6 @@ var keyPresses = function() {
 				}, 100);
 	};
 
-
-
 	$(document).keydown(function(e) {
 
 		// Part of the multi-keypress functionality.
@@ -50,7 +48,7 @@ var keyPresses = function() {
 
 		// q,w,e,r
 		else if (e.keyCode == 81) {
-			console.log('q pressed');
+			// console.log('q pressed');
 			padBlinkTop(5);
 		} else if (e.which == 87) {
 			console.log('w pressed');
