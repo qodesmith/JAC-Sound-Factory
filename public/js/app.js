@@ -1,11 +1,15 @@
 $(function() {
 	console.log('application loaded');
 
-	// Sounds
-	App.soundsCollection = new App.Collections.SoundsCollection;
-	App.soundsFXCollectionView = new App.Views.SoundsFXCollectionView({collection: App.soundsCollection});
-	App.soundsFXCollectionView = new App.Views.SoundsDrumsCollectionView({collection: App.soundsCollection});
-	App.soundsCollection.fetch();
+	// Sounds - FX
+	App.soundsFXCollection = new App.Collections.SoundsFXCollection;
+	App.soundsFXCollectionView = new App.Views.SoundsFXCollectionView({collection: App.soundsFXCollection});
+	App.soundsFXCollection.fetch();
+
+	// Sounds - Drums
+	App.soundsDrumsCollection = new App.Collections.SoundsDrumsCollection;
+	App.soundsDrumsCollectionView = new App.Views.SoundsDrumsCollectionView({collection: App.soundsDrumsCollection});
+	App.soundsDrumsCollection.fetch();
 
 	// Sound Banks
 	App.soundBanks = new App.Collections.SoundBanks;
@@ -20,5 +24,7 @@ $(function() {
 var App = {
 	Models: {},
 	Collections: {},
-	Views: {}
+	Views: {},
+	recordStart: '',
+	compositionArray: []
 };

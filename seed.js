@@ -228,7 +228,7 @@ var soundBanks = [
       },
       {
         name: 'Sander',
-        url: baseURL + '/Tools/.wav'
+        url: baseURL + '/Tools/Sander.wav'
       }
     ]
   },

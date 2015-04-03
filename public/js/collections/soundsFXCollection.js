@@ -1,6 +1,6 @@
-App.Collections.SoundsCollection = Backbone.Collection.extend({
+App.Collections.SoundsFXCollection = Backbone.Collection.extend({
 	initialize: function() {
-		console.log('COLLECTION: sounds collection created');
+		console.log('COLLECTION: sounds FX collection created');
 		console.log(this)
 	},
 	model: App.Models.SoundModel,
@@ -9,5 +9,5 @@ App.Collections.SoundsCollection = Backbone.Collection.extend({
 	// each time the page loads. The user can
 	// change it at their discretion.
 	//TODO + FIXME : FIND A WAY TO NOT HARD CODE THIS
-	url: 'sound_banks/808%20kit/sounds',
+	url: 'sound_banks/11/sounds',
 });

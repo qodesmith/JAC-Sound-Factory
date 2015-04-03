@@ -85,16 +85,29 @@ app.get('/sounds', function (req, res) {
 	});
 });
 
-// Find sounds in ONE bank
-app.get('/sound_banks/:name/sounds', function (req, res) {
+// Find sounds in one bank
+app.get('/sound_banks/:id/sounds', function (req, res) {
 	SoundBank
 		.findOne({
-			where: {name: req.params.name},
+			where: {id: req.params.id},
 			include: Sound
 		}).then(function(bank) {
 			res.send(bank.sounds)
 		});
 });
+
+// Find sounds in ONE bank by NAME (not ID)
+// This will be used to populate the pads
+// as a default set on page load.
+// app.get('/sound_banks/:name/sounds', function (req, res) {
+// 	SoundBank
+// 		.findOne({
+// 			where: {name: req.params.name},
+// 			include: Sound
+// 		}).then(function(bank) {
+// 			res.send(bank.sounds)
+// 		});
+// });
 
 // Find single sound
 app.get('/sounds/:id', function (req, res) {
