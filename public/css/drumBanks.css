@@ -1,0 +1,12 @@
+.bank-name {
+	background: lightgrey;
+	padding: 5px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.bank-name:hover {
+	cursor: pointer;
+	color: red;
+}

@@ -9,11 +9,20 @@ App.Views.SoundBankModelView = Backbone.View.extend({
 		var bankTemplate = this.template(this.model.toJSON());
 		this.$el.html(bankTemplate);
 	},
-	// TODO : will make function
 	events: {
-		'click': 'poop'
+		'click': 'getCollection'
 	},
-	poop: function() {
+	getCollection: function() {
 		console.log('Bank was clicked!');
+		var collection = this.model.attributes.id;
+		var collectionType = this.model.attributes.type;
+		
+		if(collectionType === 'drums') {
+			console.log(collectionType);
+			console.log(this.model.attributes.name);
+		} else if(collectionType === 'fx') {
+			console.log(collectionType);
+			console.log(this.model.attributes.name);
+		};
 	},
 });
