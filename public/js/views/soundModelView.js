@@ -12,6 +12,9 @@ App.Views.SoundModelView = Backbone.View.extend({
 	play: function() {
 		// Console the id of the pad that was clicked.
 		console.log(this.$el.attr('id') + ' pad played');
+		// debugger;
+		var audio = this.$el.find('audio')[0];
+		audio.play();
 	},
 	events: {
 		'click': 'play'

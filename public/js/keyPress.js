@@ -9,7 +9,14 @@ var keyPresses = function() {
 
 	// Functions to visualize a keypress on the associated pad.
 	var padBlinkTop = function(pad) {
+		// Toggle classes so the pad will flash to indicate a press.
 		$('#top-pad-' + pad).toggleClass('pad pad2');
+
+		// Grab the pad's audio tag via a jQuery and play it.
+		var audio = $('#top-pad-' + pad).find('audio')[0];
+		audio.play();
+
+		// A timed function to re-toggle the class to remove the flash.
 		setTimeout(function () {
 					$('#top-pad-' + pad).toggleClass('pad pad2');
 				}, 100);
@@ -17,6 +24,8 @@ var keyPresses = function() {
 
 	var padBlinkBottom = function(pad) {
 		$('#bottom-pad-' + pad).toggleClass('pad pad2');
+		var audio = $('#bottom-pad-' + pad).find('audio')[0];
+		audio.play();
 		setTimeout(function () {
 					$('#bottom-pad-' + pad).toggleClass('pad pad2');
 				}, 100);
