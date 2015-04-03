@@ -1,8 +1,29 @@
+#whole {
+	height: 548px;
+	display: inline-block;
+}
+
 #pads-container {
 	background: url('http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png');
 	padding: 10px;
 	display: inline-block;
 	max-width: 528px;
+	float: left;
+}
+
+#pads-side {
+	height: 100%;
+	display: inline-block;
+}
+
+#side-top {
+	height: 50%;
+	background: blue;
+}
+
+#side-bot {
+	height: 50%;
+	background: pink;
 }
 
 #top8 {
