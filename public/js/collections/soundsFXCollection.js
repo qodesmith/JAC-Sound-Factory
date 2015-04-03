@@ -1,7 +1,6 @@
 App.Collections.SoundsFXCollection = Backbone.Collection.extend({
 	initialize: function() {
 		console.log('COLLECTION: sounds FX collection created');
-		console.log(this)
 	},
 	model: App.Models.SoundModel,
 

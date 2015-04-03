@@ -1,13 +1,13 @@
 // Multiple keys can be pressed simultaneously
 // to allow for greater pad control.
 
-
 var keyPresses = function() {
 
 	// Part of the multi-keypress functionality.
 	var keys = {};
 
 	// Functions to visualize a keypress on the associated pad.
+	// This function is for the top 8 pads.
 	var padBlinkTop = function(pad) {
 		// Toggle classes so the pad will flash to indicate a press.
 		$('#top-pad-' + pad).toggleClass('pad pad2');
@@ -16,6 +16,11 @@ var keyPresses = function() {
 		var audio = $('#top-pad-' + pad).find('audio')[0];
 		audio.load();
 		audio.play();
+		
+		// If recording, log the pads pressed.
+		var id = 'top-pad-' + pad;
+		var time = event.timeStamp;
+		compositionKeeper.keeper(id, time);
 
 		// A timed function to re-toggle the class to remove the flash.
 		setTimeout(function () {
@@ -23,16 +28,23 @@ var keyPresses = function() {
 				}, 100);
 	};
 
+	// This function is for the bottom 8 pads.
 	var padBlinkBottom = function(pad) {
 		$('#bottom-pad-' + pad).toggleClass('pad pad2');
 		var audio = $('#bottom-pad-' + pad).find('audio')[0];
 		audio.load();
 		audio.play();
+
+		var id = 'bottom-pad-' + pad;
+		var time = event.timeStamp;
+		compositionKeeper.keeper(id, time);
+
 		setTimeout(function () {
 					$('#bottom-pad-' + pad).toggleClass('pad pad2');
 				}, 100);
 	};
 
+	// When the key is pressed down, do this...
 	$(document).keydown(function(e) {
 
 		// Part of the multi-keypress functionality.
@@ -59,7 +71,7 @@ var keyPresses = function() {
 
 		// q,w,e,r
 		else if (e.keyCode == 81) {
-			// console.log('q pressed');
+			console.log('q pressed');
 			padBlinkTop(5);
 		} else if (e.which == 87) {
 			console.log('w pressed');

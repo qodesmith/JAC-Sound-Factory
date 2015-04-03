@@ -7,7 +7,15 @@ $(function() {
 
 var controls = {
 	record: function() {
-		App.recordStart = event.timeStamp;
+		$('#record').toggleClass('padOn');
+		if(!App.recordStart) {
+			App.compositionArray.length = 0;
+			App.recordStart = event.timeStamp;
+		} else if(App.recordStart) {
+			App.recordStart = false;
+		};
+
+		
 	},
 	play: function() {
 		console.log('PLAY BRUUUUUHH');

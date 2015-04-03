@@ -1,7 +1,6 @@
 App.Collections.SoundsDrumsCollection = Backbone.Collection.extend({
 	initialize: function() {
 		console.log('COLLECTION: sounds drum collection created');
-		console.log(this)
 	},
 	model: App.Models.SoundModel,
 

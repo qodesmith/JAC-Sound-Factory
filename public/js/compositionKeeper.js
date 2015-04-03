@@ -3,12 +3,10 @@ var compositionKeeper = {
 	clearComposition: function() {
 		App.compositionArray.length = 0;
 	},
-	keeper: function(stamp) {
+	keeper: function(id, stamp) {
 		var newStamp = {};
-		var time = stamp - App.recordStart;
-		// newStamp[this.id] = sdkfjksdlf,
-		newStamp.ts = time;
-		//adds timestamp property to the composition array object
+		newStamp.id = id;
+		newStamp.time = stamp;
 		App.compositionArray.push(newStamp);
 	}
 };

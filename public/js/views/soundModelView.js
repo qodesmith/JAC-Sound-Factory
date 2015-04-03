@@ -12,19 +12,27 @@ App.Views.SoundModelView = Backbone.View.extend({
 	play: function() {
 		// Console the id of the pad that was clicked.
 		console.log(this.$el.attr('id') + ' pad played');
-		// debugger;
 		var audio = this.$el.find('audio')[0];
 		audio.load();
 		audio.play();
-	},
-	events: {
-		'click': 'play',
-		'click': 'padStamp'
+		this.padStamp();
 	},
 	padStamp: function() {
-		var stamp = event.timeStamp;
-		// pass stamp to a function that
-		// keeps track of all the stamps.
-		compositionKeeper.keeper(stamp);
-	}
+		//Only record the stamps IF App.recordStart is truthy
+		if(App.recordStart) {
+			var id 		= event.currentTarget.id; 
+			var stamp = event.timeStamp - App.recordStart;
+
+			// Pass our timestamp value to the keeper function.
+			compositionKeeper.keeper(id, stamp);
+		}
+	},
+	events: {
+		'click': 'play'
+	},
+	// newSound = function(url) {
+	// 	var audio = new Audio();
+	// 	audio.src = url;
+	// 	audio.controls = false;
+	// },
 });
