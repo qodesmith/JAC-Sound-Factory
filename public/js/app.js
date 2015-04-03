@@ -12,6 +12,9 @@ $(function() {
 	App.soundBanksFXView = new App.Views.SoundBanksFXCollectionView({collection: App.soundBanks});
 	App.soundBanksDrumsView = new App.Views.SoundBanksDrumsCollectionView({collection: App.soundBanks});
 	App.soundBanks.fetch();
+
+	// Function to map pads to keys on the keyboard
+	keyPresses();
 });
 
 var App = {

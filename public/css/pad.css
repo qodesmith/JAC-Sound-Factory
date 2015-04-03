@@ -23,3 +23,15 @@
 .pad-name {
 
 }
+
+.pad2 {
+	width: 120px;
+	height: 120px;
+	background: rgba(255,255,255,0.9);
+	border: 1px solid black;
+	border-radius: 10px;
+	display: inline-block;
+	margin: 5px;
+	text-align: center;
+	cursor: pointer;
+}
