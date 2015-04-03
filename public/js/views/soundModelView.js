@@ -10,7 +10,8 @@ App.Views.SoundModelView = Backbone.View.extend({
 		this.$el.html(padTemplate);
 	},
 	play: function() {
-		console.log('pad played');
+		// Console the id of the pad that was clicked.
+		console.log(this.$el.attr('id') + ' pad played');
 	},
 	events: {
 		'click': 'play'

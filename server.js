@@ -86,10 +86,10 @@ app.get('/sounds', function (req, res) {
 });
 
 // Find sounds in ONE bank
-app.get('/sound_banks/:id/sounds', function (req, res) {
+app.get('/sound_banks/:name/sounds', function (req, res) {
 	SoundBank
 		.findOne({
-			where: {id: req.params.id},
+			where: {name: req.params.name},
 			include: Sound
 		}).then(function(bank) {
 			res.send(bank.sounds)

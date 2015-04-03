@@ -1,0 +1,30 @@
+#pads-container {
+	background: url('http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png');
+	padding: 10px;
+	display: inline-block;
+	max-width: 528px;
+}
+
+#top8 {
+
+}
+
+#bot8 {
+
+}
+
+#drums-container {
+	background: blue;
+	padding: 10px;
+	width: 200px;
+	display: inline-block;
+	color: white;
+}
+
+#fx-container {
+	background: red;
+	padding: 10px;
+	width: 200px;
+	display: inline-block;
+	color: white;
+}
