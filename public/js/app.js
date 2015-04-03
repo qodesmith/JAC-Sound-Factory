@@ -24,5 +24,7 @@ $(function() {
 var App = {
 	Models: {},
 	Collections: {},
-	Views: {}
+	Views: {},
+	recordStart: '',
+	compositionArray: []
 };

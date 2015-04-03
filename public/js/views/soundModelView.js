@@ -18,6 +18,13 @@ App.Views.SoundModelView = Backbone.View.extend({
 		audio.play();
 	},
 	events: {
-		'click': 'play'
+		'click': 'play',
+		'click': 'padStamp'
+	},
+	padStamp: function() {
+		var stamp = event.timeStamp;
+		// pass stamp to a function that
+		// keeps track of all the stamps.
+		compositionKeeper.keeper(stamp);
 	}
 });
