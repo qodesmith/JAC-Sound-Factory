@@ -17,13 +17,17 @@
 }
 
 #side-top {
-	height: 50%;
+	min-height: 50%;
 	background: blue;
+	margin:0;
+	padding: 0;
 }
 
 #side-bot {
-	height: 50%;
+	min-height: 50%;
 	background: pink;
+	margin:0;
+	padding: 0;
 }
 
 #top8 {

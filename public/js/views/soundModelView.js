@@ -14,6 +14,7 @@ App.Views.SoundModelView = Backbone.View.extend({
 		console.log(this.$el.attr('id') + ' pad played');
 		// debugger;
 		var audio = this.$el.find('audio')[0];
+		audio.load();
 		audio.play();
 	},
 	events: {

@@ -14,6 +14,7 @@ var keyPresses = function() {
 
 		// Grab the pad's audio tag via a jQuery and play it.
 		var audio = $('#top-pad-' + pad).find('audio')[0];
+		audio.load();
 		audio.play();
 
 		// A timed function to re-toggle the class to remove the flash.
@@ -25,6 +26,7 @@ var keyPresses = function() {
 	var padBlinkBottom = function(pad) {
 		$('#bottom-pad-' + pad).toggleClass('pad pad2');
 		var audio = $('#bottom-pad-' + pad).find('audio')[0];
+		audio.load();
 		audio.play();
 		setTimeout(function () {
 					$('#bottom-pad-' + pad).toggleClass('pad pad2');
