@@ -11,7 +11,7 @@ var compositionKeeper = {
 	},
 	removeSilence: function() {
 		var array = App.compositionArray;
-		var first = array[0].time - 1;
+		var first = array[0].time;
 
 		for (var i = 0; i < array.length; i++) {
 			array[i].time = array[i].time - first

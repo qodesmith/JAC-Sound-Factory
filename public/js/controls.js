@@ -30,7 +30,9 @@ var controls = {
 			// 2nd record-button click executions.
 			if(controls.recordingStatus) {
 				$('#play').removeAttr('disabled');
-			}
+				// App.recordStart = App.compositionArray[0].time
+				
+			};
 
 			// Toggle the recording status.
 			controls.recordingStatus = !controls.recordingStatus;
@@ -43,7 +45,6 @@ var controls = {
 			if(!App.recordStart) {
 				App.compositionArray.length = 0;
 				App.recordStart = event.timeStamp;
-
 			};
 
 			// Grey out play button
