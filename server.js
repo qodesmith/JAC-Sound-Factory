@@ -96,6 +96,23 @@ app.get('/sound_banks/:id/sounds', function (req, res) {
 		});
 });
 
+// URL for audioSampleLoader testing
+app.get('/sound_banks/1/sounds/:id', function (req, res) {
+	SoundBank
+		.findOne({
+			where: {id: req.params.id},
+			include: Sound
+		}).then(function(bank) {
+			Sound
+				.findOne({
+					where: {id: req.params.id},
+				})
+				.then(function(sounds) {
+					res.send(sounds.url);
+				});
+		});
+});
+
 // Find single sound
 app.get('/sounds/:id', function (req, res) {
 	Sound
