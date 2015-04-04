@@ -3,8 +3,10 @@ var logger				 = require('morgan');
 var bodyParser		 = require('body-parser');
 var models				 = require('./models');
 
-var SoundBank = models.sound_banks;
-var Sound     = models.sounds;
+var SoundBank    = models.sound_banks;
+var Sound        = models.sounds;
+var User 			   = models.users;
+var Composition  = models.compositions; 
 
 var app       = express()
 
@@ -160,6 +162,126 @@ app.delete('/sounds/:id', function (req, res) {
 		});
 	});
 });
+
+// Get all Users data and includes the Compositions
+app.get('/users', function (req, res) {
+	User
+	.findAll({include : Composition})
+	.then(function(users){
+		res.send(users);
+	});
+});
+
+// Get one User based on the id and 
+// include the Composition related to that User
+app.get('/users/:id', function (req, res) {
+	User
+	.findOne({
+		where : req.params.id,
+		include: Composition
+	})
+	.then(function(user){
+		res.send(user);
+	});
+});
+
+//creates a new user
+app.post('users', function (req, res) {
+	User
+	.create(req.body)
+	.then(function(createdUser){
+		res.send(createdUser);
+	});
+});
+
+//edits a users info of a specific User
+app.put('users/:id', function (req, res){
+	User
+	.findOne(req.params.id)
+	.then(function(user){
+		user
+		.update(req.body)
+		.then(function(updatedUser){
+			res.send(updatedUser);
+		});
+	});
+});
+
+//delete a specific user
+app.delete('users/:id', function (req, res){
+	User
+	.findOne(req.params.id)
+	.then(function(user){
+		user
+		.destroy()
+		.then(function(destroyedUser){
+			res.send(destroyedUser);
+		})
+	});
+});
+
+app.get('/compositons', function (req, res) {
+	Composition
+	.findAll()
+	.then(function(compositons){
+		res.send(compositons);
+	});
+});
+
+//find a composition by id 
+app.get('/compositons/:id', function (req, res) {
+	Composition
+	.findOne(req.params.id)
+	.then(function(compositon){
+		res.send(compositon);
+	});
+});
+
+//creates a new composition in a specific User
+app.post('users/:id/compositons', function (req, res) {
+	var usersId = req.params.id;
+	var compositonData = req.body;
+
+	User
+	.findOne(usersId)
+	.then(function(user){
+		Composition
+		.create(compositonData)
+		.then(function(createdComp){
+			User.addComposition(createdComp)
+			res.send(createdComp);
+		});
+	});
+});
+
+// updates a current compositions info
+app.put('/compostions/:id', function (req, res){
+	Composition
+	.findOne(req.params.id)
+	.then(function(composition){
+		composition
+		.update(req.body)
+		.then(function(updatedComp){
+			res.send(updatedComp);
+		});
+	});
+});
+
+//deletes a compositionx`
+app.delete('/compositions/:id', function (req, res) {
+	Composition
+	.findOne(req.params.id)
+	.then(function(composition){
+		composition
+		.destroy()
+		.then(function(destroyedComp){
+			res.send(destroyedComp);
+		});
+	});
+});
+
+
+
 
 
 app.listen(3000, function(){
