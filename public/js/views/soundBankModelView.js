@@ -13,7 +13,6 @@ App.Views.SoundBankModelView = Backbone.View.extend({
 		'click': 'getCollection'
 	},
 	getCollection: function() {
-		console.log('Bank was clicked!');
 		var collection = this.model.attributes.id;
 		var collectionType = this.model.attributes.type;
 		var collectionName = this.model.attributes.name;
