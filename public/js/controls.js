@@ -15,22 +15,25 @@ var controls = {
 	// stopStatus: false,
 	// value: 0,
 	record: function() {
-		controls.recordingStatus = !controls.recordingStatus;
-		
-		$('#record').toggleClass('padOn');
-		
-		if(!App.recordStart) {
-			App.compositionArray.length = 0;
-			App.recordStart = event.timeStamp;
+		// Do not record during playback.
+		if(!controls.playStatus) {
+			controls.recordingStatus = !controls.recordingStatus;
+			
+			$('#record').toggleClass('padOn');
+			
+			if(!App.recordStart) {
+				App.compositionArray.length = 0;
+				App.recordStart = event.timeStamp;
 
-			// Grey out play button
+				// Grey out play button
 
-		} else if(App.recordStart) {
-			App.recordStart = null;
+			} else if(App.recordStart) {
+				App.recordStart = null;
 
-			// Un-grey out play button
+				// Un-grey out play button
 
-		};		
+			};		
+		};
 	},
 	play: function() {
 		if(!controls.recordingStatus && !controls.playStatus) { // Only play if NOT recording OR if not playing already.
