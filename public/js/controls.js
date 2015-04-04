@@ -17,7 +17,6 @@ var controls = {
 	record: function() {
 		// Do not record during playback.
 		if(!controls.playStatus) {
-			debugger;
 
 			// If this is our 1st time hitting the record button,
 			// the status will be false. If so, reset App.recordStart.
