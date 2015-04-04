@@ -17,22 +17,30 @@ var controls = {
 	record: function() {
 		// Do not record during playback.
 		if(!controls.playStatus) {
+			debugger;
+
+			// If this is our 1st time hitting the record button,
+			// the status will be false. If so, reset App.recordStart.
+			// If this is the second time hitting the record button,
+			// the status will be true, and this will be ignored.
+			if(!controls.recordingStatus) {
+				App.recordStart = null; // Only reset on 2nd record-button press.s
+			}
+
+			// Toggle the recording status.
 			controls.recordingStatus = !controls.recordingStatus;
-			
+
+			// Turn the recording button red.
 			$('#record').toggleClass('recordOn');
-			
-			if(!App.recordStart) {
-				App.compositionArray.length = 0;
-				App.recordStart = event.timeStamp;
+				// If recordStart is false (empty), reset our composition
+				// array and set recordStart time to event.timeStamp.
+				if(!App.recordStart) {
+					App.compositionArray.length = 0;
+					App.recordStart = event.timeStamp;
 
-				// Grey out play button
+					// Grey out play button
 
-			} else if(App.recordStart) {
-				App.recordStart = null;
-
-				// Un-grey out play button
-
-			};		
+				} 	
 		};
 	},
 	play: function() {
