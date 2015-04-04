@@ -5,3 +5,7 @@
 .playOn {
 	background: #00ff00;
 }
+
+.playOff {
+	background: lightgrey;
+}

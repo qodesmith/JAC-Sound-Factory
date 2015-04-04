@@ -23,7 +23,13 @@ var controls = {
 			// If this is the second time hitting the record button,
 			// the status will be true, and this will be ignored.
 			if(!controls.recordingStatus) {
-				App.recordStart = null; // Only reset on 2nd record-button press.s
+				App.recordStart = null; // Only reset on 1st record-button press.
+				$('#play').attr('disabled','');
+			};
+
+			// 2nd record-button click executions.
+			if(controls.recordingStatus) {
+				$('#play').removeAttr('disabled');
 			}
 
 			// Toggle the recording status.
@@ -31,15 +37,18 @@ var controls = {
 
 			// Turn the recording button red.
 			$('#record').toggleClass('recordOn');
-				// If recordStart is false (empty), reset our composition
-				// array and set recordStart time to event.timeStamp.
-				if(!App.recordStart) {
-					App.compositionArray.length = 0;
-					App.recordStart = event.timeStamp;
 
-					// Grey out play button
+			// If recordStart is false (empty), reset our composition
+			// array and set recordStart time to event.timeStamp.
+			if(!App.recordStart) {
+				App.compositionArray.length = 0;
+				App.recordStart = event.timeStamp;
 
-				} 	
+			};
+
+			// Grey out play button
+			$('#play').toggleClass('playOff');
+
 		};
 	},
 	play: function() {
