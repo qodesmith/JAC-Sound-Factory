@@ -25,6 +25,6 @@ var App = {
 	Models: {},
 	Collections: {},
 	Views: {},
-	recordStart: false,
+	recordStart: null,
 	compositionArray: []
 };
