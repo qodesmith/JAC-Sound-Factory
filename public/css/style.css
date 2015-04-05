@@ -1,5 +1,7 @@
 body {
 	font-family: sans-serif;
+	/*background: black;*/
+	background: url('http://stretched.alphacoders.com/images/414/stretched-414210.jpg');
 }
 
 h3 {

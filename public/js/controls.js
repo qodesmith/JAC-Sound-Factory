@@ -31,7 +31,7 @@ var controls = {
 			if(controls.recordingStatus) {
 				$('#play').removeAttr('disabled');
 				// App.recordStart = App.compositionArray[0].time
-				
+				compositionKeeper.removeSilence();
 			};
 
 			// Toggle the recording status.

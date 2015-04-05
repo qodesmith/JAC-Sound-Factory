@@ -1,14 +1,41 @@
 #whole {
-	height: 548px;
-	display: inline-block;
 }
 
 #pads-container {
-	background: url('http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png');
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	/*background: url('http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png');*/
+	width: 530px;
+	height: 530px;
 	padding: 10px;
-	display: inline-block;
-	width: 532px;
-	float: left;
+	border: 3px solid rgba(255,255,255,0.2);
+	border-radius: 25px
+}
+
+#test {
+	position: absolute;
+	display: inline;
+	padding: 0;
+	margin: 0;
+	width: 530px;
+	height: 530px;
+	z-index: -1
+}
+
+img {
+	opacity: 0.9;
+}
+
+#top8 {
+	text-align: center;
+	z-index: 1;
+}
+
+#bot8 {
+	text-align: center;
+	z-index: 1;
 }
 
 #pads-side {
@@ -28,14 +55,6 @@
 	background: pink;
 	margin:0;
 	padding: 0;
-}
-
-#top8 {
-
-}
-
-#bot8 {
-
 }
 
 #drums-container {
