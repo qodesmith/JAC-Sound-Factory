@@ -6,6 +6,7 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	background: rgba(0,0,0,0.5);
 	/*background: url('http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png');*/
 	width: 530px;
 	height: 530px;
@@ -14,28 +15,29 @@
 	border-radius: 25px
 }
 
-#test {
+#thundercats {
 	position: absolute;
 	display: inline;
 	padding: 0;
 	margin: 0;
 	width: 530px;
 	height: 530px;
+	border-radius: 15px;
 	z-index: -1
 }
 
 img {
-	opacity: 0.9;
+	opacity: 0.8;
 }
 
 #top8 {
 	text-align: center;
-	z-index: 1;
+	/*z-index: 1;*/
 }
 
 #bot8 {
 	text-align: center;
-	z-index: 1;
+	/*z-index: 1;*/
 }
 
 #pads-side {

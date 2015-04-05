@@ -25,13 +25,17 @@ var controls = {
 			if(!controls.recordingStatus) {
 				App.recordStart = null; // Only reset on 1st record-button press.
 				$('#play').attr('disabled','');
+				// debugger; //1
 			};
 
 			// 2nd record-button click executions.
 			if(controls.recordingStatus) {
 				$('#play').removeAttr('disabled');
+				// debugger; // 2
 				// App.recordStart = App.compositionArray[0].time
-				compositionKeeper.removeSilence();
+				if(App.compositionArray.length) {
+					compositionKeeper.removeSilence();
+				}
 			};
 
 			// Toggle the recording status.
@@ -39,6 +43,7 @@ var controls = {
 
 			// Turn the recording button red.
 			$('#record').toggleClass('recordOn');
+			// debugger; // 3
 
 			// If recordStart is false (empty), reset our composition
 			// array and set recordStart time to event.timeStamp.
@@ -53,7 +58,7 @@ var controls = {
 		};
 	},
 	play: function() {
-		if(!controls.recordingStatus && !controls.playStatus) { // Only play if NOT recording OR if not playing already.
+		if(!controls.recordingStatus && !controls.playStatus && App.compositionArray.length) { // Only play if NOT recording OR if not playing already.
 			
 			// Change the playStatus to indicate currenty playing.
 			controls.playStatus = !controls.playStatus;

@@ -23,6 +23,7 @@
 	<script src="js/keyPresses.js"></script>
 	<script src="js/compositionKeeper.js"></script>
 	<script src="js/controls.js"></script>
+	<script src="js/randomBackground.js"></script>
 
 	<script src="js/app.js"></script>
 	<script src="js/models/soundBankModel.js"></script>
@@ -46,7 +47,7 @@
 <body>
 	
 	<div id="pads-container">
-		<img id ="test" src="http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png"	>
+		<img id ="thundercats" src="http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png"	>
 		<div id="top8"></div>
 		<div id="bot8"></div>
 	</div>
@@ -59,13 +60,13 @@
 	</div> -->
 
 	<!-- <div id="drums-container"><h3>DRUMS</h3></div>
-	<div id="fx-container"><h3>FX</h3></div>
+	<div id="fx-container"><h3>FX</h3></div> -->
 	<div id="controls">
 		<button id="record">Record</button>
 		<button id="play">Play</button>
 		<button id="stop">Stop</button>
 		<button id="save">Save</button>
-	</div> -->
+	</div>
 
 	<template id="sound-template">
 		<p class="pad-name" data-id="{{id}}" data-sound="{{url}}">{{name}}</p>

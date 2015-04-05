@@ -19,6 +19,7 @@ $(function() {
 
 	// Function to map pads to keys on the keyboard
 	keyPresses();
+	getBackground();
 });
 
 var App = {

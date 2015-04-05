@@ -9,3 +9,20 @@
 .playOff {
 	background: lightgrey;
 }
+
+
+#controls {
+	width: 450px;
+	height: 50px;
+	background: rgba(255,255,255,0.7);
+	margin: 0 auto;
+	text-align: center;
+	/*border-bottom-left-radius: 50px;*/
+	/*border-bottom-right-radius: 50px;*/
+	border-radius: 50px
+}
+
+#controls button {
+	font-size: 1.5em;
+	margin-top: 8px;
+}
