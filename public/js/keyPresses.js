@@ -85,14 +85,18 @@ var keyPresses = function() {
 var padTriggerTop = function(pad) {
 	// Toggle classes: changes the pads bg color.
 	$('#top-pad-' + pad).toggleClass('pad pad2');
+
 	// Grab the pad's audio tag via a jQuery and play it.
-	// var audio = $('#top-pad-' + pad).find('audio')[0];
-	// audio.load();
+	var audio = $('#top-pad-' + pad).find('audio')[0];
+	audio.load();
+	audio.play();
+
 	// If recording, log the pads pressed.
 	var id = 'top-pad-' + pad;
 	var stamp = event.timeStamp - App.recordStart;
 	
 	compositionKeeper.keeper(id, stamp);
+
 	// Re-toggle classes: timed function, changed the bg color.
 	setTimeout(function () {
 				$('#top-pad-' + pad).toggleClass('pad pad2');
@@ -102,12 +106,11 @@ var padTriggerTop = function(pad) {
 // Bottom 8 pads.
 var padTriggerBottom = function(pad) {
 	$('#bottom-pad-' + pad).toggleClass('pad pad2');
-	// var audio = $('#bottom-pad-' + pad).find('audio')[0];
-	// audio.load();
-	// audio.play();
+	var audio = $('#bottom-pad-' + pad).find('audio')[0];
+	audio.load();
+	audio.play();
 	var id = 'bottom-pad-' + pad;
 	var stamp = event.timeStamp - App.recordStart;
-
 	compositionKeeper.keeper(id, stamp);
 	setTimeout(function () {
 				$('#bottom-pad-' + pad).toggleClass('pad pad2');
