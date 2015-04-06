@@ -8,5 +8,13 @@ var compositionKeeper = {
 		newStamp.id = id;
 		newStamp.time = stamp;
 		App.compositionArray.push(newStamp);
+	},
+	removeSilence: function() {
+		var array = App.compositionArray;
+		var first = array[0].time;
+
+		for (var i = 0; i < array.length; i++) {
+			array[i].time = array[i].time - first
+		}
 	}
 };

@@ -1,7 +1,7 @@
 var models = require('./models');
 var SoundBank = models.sound_banks;
 var Sound = models.sounds;
-var baseURL = 'http://qodesmith.com/Sounds'
+var baseURL = '/audiofiles'
 
 var soundBanks = [
   {
