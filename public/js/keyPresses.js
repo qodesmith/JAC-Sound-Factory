@@ -22,7 +22,6 @@ var keyPresses = function() {
 		} else if (e.which === 52) {
 			padTriggerTop(4);
 		} 
-
 		// q,w,e,r
 		else if (e.keyCode === 81) {
 			padTriggerTop(5);
@@ -33,7 +32,6 @@ var keyPresses = function() {
 		} else if (e.which === 82) {
 			padTriggerTop(8);
 		} 
-
 		// a,s,d,f
 		else if (e.which === 65) {
 			padTriggerBottom(1);
@@ -44,7 +42,6 @@ var keyPresses = function() {
 		} else if (e.which === 70) {
 			padTriggerBottom(4);
 		} 
-
 		// z,x,c,v
 		else if (e.which === 90) {
 			padTriggerBottom(5);
@@ -55,19 +52,16 @@ var keyPresses = function() {
 		} else if (e.which === 86) {
 			padTriggerBottom(8);
 		}
-
 		// space bar - controls play button
 		else if (e.which === 32) {
 			console.log('space bar pressed');
 			controls.play();
-
 		// enter - controls record button
 		} else if (e.which === 13) {
 			console.log('enter pressed');
 			controls.record();
 		};
 	});
-
 	// Part of the multi-keypress functionality.
 	$(document).keyup(function(e) { 
 	  allowed = true;
@@ -84,30 +78,27 @@ var keyPresses = function() {
 var padTriggerTop = function(pad) {
 	// Toggle classes: changes the pads bg color.
 	$('#top-pad-' + pad).toggleClass('pad pad2');
-	// Grab the pad's audio tag via a jQuery and play it.
-	// var audio = $('#top-pad-' + pad).find('audio')[0];
 	$('#top-pad-' + pad)[0].play();
 	// If recording, log the pads pressed.
 	var id = 'top-pad-' + pad;
 	var stamp = event.timeStamp - App.recordStart;
 	
 	compositionKeeper.keeper(id, stamp);
+
 	// Re-toggle classes: timed function, changed the bg color.
 	setTimeout(function () {
-				$('#top-pad-' + pad).toggleClass('pad pad2');
-			}, 100);
+		$('#top-pad-' + pad).toggleClass('pad pad2');
+	}, 100);
 };
 
 // Bottom 8 pads.
 var padTriggerBottom = function(pad) {
 	$('#bottom-pad-' + pad).toggleClass('pad pad2');
-	// var audio = $('#bottom-pad-' + pad).find('audio')[0];
 	$('#bottom-pad-' + pad)[0].play();
 	var id = 'bottom-pad-' + pad;
 	var stamp = event.timeStamp - App.recordStart;
-
 	compositionKeeper.keeper(id, stamp);
 	setTimeout(function () {
-				$('#bottom-pad-' + pad).toggleClass('pad pad2');
-			}, 100);
+		$('#bottom-pad-' + pad).toggleClass('pad pad2');
+	}, 100);
 };

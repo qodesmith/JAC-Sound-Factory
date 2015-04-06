@@ -5,7 +5,6 @@ App.Views.SoundModelView = Backbone.View.extend({
 		this.render();
 		this.addAudioProperties(this.el);
 		this.$el.click(function() {
-			debugger;
 			this.play();
 		});
 	},
@@ -13,7 +12,6 @@ App.Views.SoundModelView = Backbone.View.extend({
 		var padTemplate = this.template(this.model.toJSON());
 		this.$el.html(padTemplate);
 	},
-
 	loadAudio: function(pad, url) {
 	  var request = new XMLHttpRequest();
 	  request.open('GET', url, true);
@@ -27,7 +25,6 @@ App.Views.SoundModelView = Backbone.View.extend({
 	  request.send();
 	  console.log(request);
 	},
-
 	addAudioProperties: function(pad) {
   	pad.source = $(pad).find('.pad-name').data('sound');
   	console.log(pad.source);

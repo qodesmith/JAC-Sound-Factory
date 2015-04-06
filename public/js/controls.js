@@ -129,8 +129,15 @@ var controls = {
 			
 			// JS object to a string for storing in our database.
 			// JSON.parse(x) = the opposite.
-			JSON.stringify(App.compositionArray)
-		}
+			var newComposition = JSON.stringify(App.compositionArray);
+		};
 
+		// Darken the background.
+		$('div.modalBackground').fadeIn(100);
+
+		var newModal = new App.Views.ModalView;
+
+		// Remove the dark background.
+		// $('.modalBackground').hide()
 	}
 };
