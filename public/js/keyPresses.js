@@ -1,14 +1,10 @@
 // Multiple keys can be pressed simultaneously
 // to allow for greater pad control.
-
 var keyPresses = function() {
-
 	// Part of the multi-keypress functionality.
 	var keys = {};
-
 	// When the key is pressed down, do this...
 	$(document).keydown(function(e) {
-
 		// Part of the multi-keypress functionality.
 		keys[e.which] = true;
 
@@ -90,7 +86,7 @@ var padTriggerTop = function(pad) {
 	$('#top-pad-' + pad).toggleClass('pad pad2');
 	// Grab the pad's audio tag via a jQuery and play it.
 	// var audio = $('#top-pad-' + pad).find('audio')[0];
-	// audio.load();
+	$('#top-pad-' + pad)[0].play();
 	// If recording, log the pads pressed.
 	var id = 'top-pad-' + pad;
 	var stamp = event.timeStamp - App.recordStart;
@@ -106,9 +102,7 @@ var padTriggerTop = function(pad) {
 var padTriggerBottom = function(pad) {
 	$('#bottom-pad-' + pad).toggleClass('pad pad2');
 	// var audio = $('#bottom-pad-' + pad).find('audio')[0];
-	// audio.load();
-	// audio.play();
-	pad.play();
+	$('#bottom-pad-' + pad)[0].play();
 	var id = 'bottom-pad-' + pad;
 	var stamp = event.timeStamp - App.recordStart;
 

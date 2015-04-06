@@ -1,11 +1,11 @@
 App.Views.SoundModelView = Backbone.View.extend({
 	className: 'pad',
 	initialize: function() {
-		console.log('model view created')
 		this.template = Handlebars.compile($('#sound-template').html());
 		this.render();
 		this.addAudioProperties(this.el);
 		this.$el.click(function() {
+			debugger;
 			this.play();
 		});
 	},
@@ -40,14 +40,6 @@ App.Views.SoundModelView = Backbone.View.extend({
   		  pad.source = source;
   		}
 	},
-	// play: function() {
-	// 	// Console the id of the pad that was clicked.
-	// 	console.log(this.$el.attr('id') + ' pad played');
-	// 	var audio = this.$el.find('audio')[0];
-	// 	audio.load();
-	// 	audio.play();
-	// 	this.padStamp();
-	// },
 	padStamp: function() {
 		//Only record the stamps IF App.recordStart is truthy
 		if(App.recordStart) {
@@ -58,12 +50,4 @@ App.Views.SoundModelView = Backbone.View.extend({
 			compositionKeeper.keeper(id, stamp);
 		}
 	},
-	// events: {
-	// 	'click': 'play'
-	// },
-	// newSound = function(url) {
-	// 	var audio = new Audio();
-	// 	audio.src = url;
-	// 	audio.controls = false;
-	// },
 });
