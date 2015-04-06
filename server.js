@@ -167,8 +167,6 @@ app.delete('/sounds/:id', function (req, res) {
 // Background //
 ////////////////
 
-
-
 app.get('/background', function (req, res) {
 	request({
 		uri: 'http://wall.alphacoders.com/api1.0/get.php',

@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="css/containers.css">
 	<link rel="stylesheet" href="css/drumBanks.css">
 	<link rel="stylesheet" href="css/controls.css">
+	<link rel="stylesheet" href="css/modals.css">
 
 	<script src="js/keyPresses.js"></script>
 	<script src="js/compositionKeeper.js"></script>
@@ -39,12 +40,16 @@
 	<script src="js/views/soundBanksDrumsCollectionView.js"></script>
 	<script src="js/views/soundsFXCollectionView.js"></script>
 	<script src="js/views/soundsDrumsCollectionView.js"></script>
+
+	<script src="js/views/modalView.js"></script>
 	
 	<!--<script src="js/audio/audioSampleLoader.js"></script>
 	<script src="js/audio/audioContext.js"></script>-->
 
 </head>
 <body>
+
+	<div class="modalBackground"></div>
 	
 	<div id="controls">
 		<button id="record">Record</button>
@@ -71,6 +76,14 @@
 
 	<template id="soundBank-template">
 		<div class="bank-name">{{name}}</div>
+	</template>
+
+	<template id="modal-template">
+		<div class="modal">
+			<input type="text" name="yourName" placeholder="Your name here..."><br>
+			<input type="text" name="composition" placeholder="Name your composition..."><br>
+			<input type="submit" value="Save">
+		</div>
 	</template>
 
 </body>
