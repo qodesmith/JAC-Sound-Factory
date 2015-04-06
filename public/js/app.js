@@ -1,6 +1,6 @@
 $(function() {
 	console.log('application loaded');
-
+	App.context = new AudioContext();
 	// Sounds - FX
 	App.soundsFXCollection = new App.Collections.SoundsFXCollection;
 	App.soundsFXCollectionView = new App.Views.SoundsFXCollectionView({collection: App.soundsFXCollection});
