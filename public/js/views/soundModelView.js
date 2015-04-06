@@ -8,14 +8,14 @@ App.Views.SoundModelView = Backbone.View.extend({
 		var padTemplate = this.template(this.model.toJSON());
 		this.$el.html(padTemplate);
 	},
-	// play: function() {
-	// 	// Console the id of the pad that was clicked.
-	// 	console.log(this.$el.attr('id') + ' pad played');
-	// 	var audio = this.$el.find('audio')[0];
-	// 	audio.load();
-	// 	audio.play();
-	// 	this.padStamp();
-	// },
+	play: function() {
+		// Console the id of the pad that was clicked.
+		console.log(this.$el.attr('id') + ' pad played');
+		var audio = this.$el.find('audio')[0];
+		audio.load();
+		audio.play();
+		this.padStamp();
+	},
 	padStamp: function() {
 		//Only record the stamps IF App.recordStart is truthy
 		if(App.recordStart) {
@@ -26,9 +26,9 @@ App.Views.SoundModelView = Backbone.View.extend({
 			compositionKeeper.keeper(id, stamp);
 		}
 	},
-	// events: {
-	// 	'click': 'play'
-	// },
+	events: {
+		'click': 'play'
+	},
 	// newSound = function(url) {
 	// 	var audio = new Audio();
 	// 	audio.src = url;
