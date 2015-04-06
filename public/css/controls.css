@@ -1,4 +1,7 @@
-.padOn {
+.recordOn {
 	background: red;
 }
 
+.playOn {
+	background: #00ff00;
+}

@@ -15,28 +15,34 @@ var controls = {
 	// stopStatus: false,
 	// value: 0,
 	record: function() {
-		controls.recordingStatus = !controls.recordingStatus;
-		
-		$('#record').toggleClass('padOn');
-		
-		if(!App.recordStart) {
-			App.compositionArray.length = 0;
-			App.recordStart = event.timeStamp;
+		// Do not record during playback.
+		if(!controls.playStatus) {
+			controls.recordingStatus = !controls.recordingStatus;
+			
+			$('#record').toggleClass('recordOn');
+			
+			if(!App.recordStart) {
+				App.compositionArray.length = 0;
+				App.recordStart = event.timeStamp;
 
-			// Grey out play button
+				// Grey out play button
 
-		} else if(App.recordStart) {
-			App.recordStart = null;
+			} else if(App.recordStart) {
+				App.recordStart = null;
 
-			// Un-grey out play button
+				// Un-grey out play button
 
-		};		
+			};		
+		};
 	},
 	play: function() {
 		if(!controls.recordingStatus && !controls.playStatus) { // Only play if NOT recording OR if not playing already.
 			
 			// Change the playStatus to indicate currenty playing.
 			controls.playStatus = !controls.playStatus;
+
+			$('#play').toggleClass('playOn');
+
 			var composition = App.compositionArray;
 
 			// 'what', 'when', and 'i' get their values fromthe for
@@ -48,6 +54,7 @@ var controls = {
 					audio.play();
 					if (i === composition.length - 1) {
 						controls.playStatus = !controls.playStatus;
+						$('#play').toggleClass('playOn');
 					};
 				}, when);
 			};
@@ -58,6 +65,9 @@ var controls = {
 
 				doSetTimeout(what, when, i);
 			};
+
+			// Gray out record button
+
 		} else if(controls.recordingStatus) {
 			// flash an X over the play button
 			// using the timeout function
