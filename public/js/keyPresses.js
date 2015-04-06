@@ -62,9 +62,12 @@ var keyPresses = function() {
 
 		// space bar - controls play button
 		else if (e.which === 32) {
+			console.log('space bar pressed');
 			controls.play();
+
 		// enter - controls record button
 		} else if (e.which === 13) {
+			console.log('enter pressed');
 			controls.record();
 		};
 	});
