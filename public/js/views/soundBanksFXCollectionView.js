@@ -1,7 +1,6 @@
 App.Views.SoundBanksFXCollectionView = Backbone.View.extend({
 	el: '#fx-container',
 	initialize: function() {
-		console.log('VIEW: sound banks collection view created');
 		this.listenTo(this.collection, 'add', this.renderOne);
 	},
 	// renderAll: function() {

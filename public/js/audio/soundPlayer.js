@@ -1,6 +1,7 @@
 var context = new AudioContext();
 
 var loadAudio = function(pad, url) {
+  console.log(pad);
   var request = new XMLHttpRequest();
   request.open('GET', url, true);
   request.responseType = 'arraybuffer';
@@ -13,6 +14,7 @@ var loadAudio = function(pad, url) {
 }
 
 var addAudioProperties = function(pad) {
+  console.log(pad);
   pad.name = pad.id;
   pad.source = $(pad).data('sound');
 

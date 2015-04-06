@@ -1,7 +1,6 @@
 App.Views.SoundBankModelView = Backbone.View.extend({
 	className: 'sound-bank',
 	initialize: function() {
-		console.log('VIEW: sound bank model view created');
 		this.template = Handlebars.compile($('#soundBank-template').html());
 		this.render();
 	},

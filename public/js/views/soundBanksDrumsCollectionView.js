@@ -1,7 +1,6 @@
 App.Views.SoundBanksDrumsCollectionView = Backbone.View.extend({
 	el: '#drums-container',
 	initialize: function() {
-		console.log('VIEW: sound banks collection view created');
 		this.listenTo(this.collection, 'add', this.renderOne);
 	},
 	// renderAll: function() {
