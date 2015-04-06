@@ -108,6 +108,7 @@ var padTriggerBottom = function(pad) {
 	// var audio = $('#bottom-pad-' + pad).find('audio')[0];
 	// audio.load();
 	// audio.play();
+	pad.play();
 	var id = 'bottom-pad-' + pad;
 	var stamp = event.timeStamp - App.recordStart;
 
