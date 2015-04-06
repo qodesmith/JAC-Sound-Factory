@@ -4,8 +4,10 @@ var bodyParser		 = require('body-parser');
 var models				 = require('./models');
 var request				 = require('request');
 
-var SoundBank = models.sound_banks;
-var Sound     = models.sounds;
+var SoundBank   = models.sound_banks;
+var Sound       = models.sounds;
+var User        = models.users;
+var Composition = models.compositions;
 
 var app       = express()
 
@@ -162,6 +164,121 @@ app.delete('/sounds/:id', function (req, res) {
 	});
 });
 
+/////////////////
+////  USERS  ////
+/////////////////
+
+app.get('/users', function (req, res){
+	User
+	.findAll({include: Composition})
+	.then(function(users){
+		res.send(users)
+	});
+});
+
+app.get('/users/:id', function (req, res) {
+	User
+	.findOne({
+		where: req.params.id,
+		include: Composition
+	})
+	.then(function(user){
+		res.send(user);
+	});
+});
+
+app.post('/users', function (req, res){
+	User
+	.create(req.body)
+	.then(function(createdUser){
+		res.send(createdUser);
+	});
+});
+
+app.put('/users/:id', function (req, res){
+	User 
+	.findOne(req.params.id)
+	.then(function(user){
+		user
+		.update(req.body)
+		.then(function(updatedUser){
+			res.send(updatedUser);
+		});
+	});
+});
+
+app.delete('/users/:id', function (req, res){
+	User
+	.findOne(req.params.id)
+	.then(function(user){
+		user
+		.destroy()
+		.then(function(destroyedUser){
+			res.send(destroyedUser);
+		});
+	});
+});
+
+/////////////////
+// compositions//           
+//      ///    //
+/////////////////
+
+app.get('/compositions', function (req, res) {
+	Composition
+	.findAll()
+	.then(function(compositions){
+		res.send(compositions);
+	});
+});
+
+app.get('/users/:id/compositions', function (req, res) {
+	User.
+	findOne({
+		where: req.params.id,
+		include: Composition
+	})
+	.then(function(user){
+		res.send(user.compositions);
+	});
+});
+
+app.post('/users/:id/compositions', function (req, res) {
+	User
+	.findOne(req.params.id)
+	.then(function(user){
+		Composition
+		.create(req.body)
+		.then(function(newComp){
+			user.addComposition(newComp)
+			res.send(newComp);
+		});
+	});
+});
+
+app.put('/compositions/:id', function (req, res) {
+	Composition
+	.findOne(req.params.id)
+	.then(function(comp){
+		comp
+		.update(req.body)
+		.then(function(updatedComp){
+			res.send(updatedComp);
+		});
+	});
+});
+
+app.delete('/compositions/:id', function (req, res) {
+	Composition
+	.findOne(req.params.id)
+	.then(function(comp){
+		comp
+		.destroy()
+		.then(function(destroyedComp){
+			res.send(destroyedComp);
+		});
+	});
+});
 ////////////////
 //   Random		//
 // Background //
