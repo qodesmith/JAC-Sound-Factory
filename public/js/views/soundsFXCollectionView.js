@@ -1,7 +1,6 @@
 App.Views.SoundsFXCollectionView = Backbone.View.extend({
 	el: '#top8',
 	initialize: function() {
-		console.log('VIEW: sounds collection view created');
 		this.listenTo(this.collection, 'add', this.renderOne);
 	},
 	renderOne: function(soundModel) {
