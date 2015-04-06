@@ -1,7 +1,7 @@
 $(function() {
 	$('#record').on('click', controls.record);
 	$('#play').on('click', controls.play);
-	$('#stop').on('click', controls.stop);
+	// $('#stop').on('click', controls.stop);
 	$('#save').on('click', controls.save);
 });
 
@@ -70,7 +70,27 @@ var controls = {
 			// 'what', 'when', and 'i' get their values fromthe for
 			// loop below. This function is triggered by that loop.
 			var doSetTimeout = function(what, when, i) {
-				setTimeout(function() {
+
+				// STOP functionality:
+				// cancels the below timeout functions.
+				// $('#stop').on('click', function() {
+				// 	debugger;
+
+				// 	// Revert the play status
+				// 	controls.playStatus = !controls.playStatus;
+
+				// 	// Turn the play button 'off'.
+				// 	$('#play').toggleClass('playOn');
+					
+				// 	// Stop all the padStroke timeout functions.
+				// 	clearTimeout(padStroke);
+				// 	console.log('yo')
+
+				// });
+
+				// Timeout function
+				var padStroke = setTimeout(function() {
+					console.log('New padStroke, #' + i);
 					var audio = $('#' + what).find('audio')[0];
 					audio.load();
 					audio.play();
@@ -80,6 +100,10 @@ var controls = {
 					};
 				}, when);
 			};
+
+			var stop = function() {
+
+			}
 
 			for(var i = 0; i < composition.length; i++) {
 				var when = composition[i].time;
@@ -96,40 +120,17 @@ var controls = {
 			console.log('Recording in session...')
 		};
 	},
-	// play2: function() {
-	// 	// Only play if NOT recording and NOT already playing
-	// 	if(!controls.recordingStatus && !controls.playStatus) {
-
-	// 		// Flip the play status
-	// 		controls.playStatus = !controls.playStatus;
-
-	// 		// Start a countup, 1 millisecond intervals.
-	// 		timer = setInterval(function() {
-	// 			value += 1;
-	// 		}, 1);
-
-	// 		for(var i = 0; i < App.compositionArray.length; i++) {
-	// 			if
-	// 		}
-
-	// 		// When the timer is the same value as the event
-	// 		// time in the array, trigger that events audio.
-
-
-
-	// 	} else if() {
-
-	// 	};
-	// 	timer = setInterval(function() {
-	// 		value += 1;
-	// 		console.log(value)
-	// 	}, interval);
-	// },
-	stop: function() {
-		console.log('Stop BRUUUUUHH');
-		clearInterval(controls.timer);
-	},
 	save: function() {
 		console.log('Save clicked');
+
+		// Only save IF we have a populated array,
+		// IF we're not playing, and IF we're not recording.
+		if(App.compositionArray.length && !controls.playStatus && !controls.recordingStatus) {
+			
+			// JS object to a string for storing in our database.
+			// JSON.parse(x) = the opposite.
+			JSON.stringify(App.compositionArray)
+		}
+
 	}
 };
