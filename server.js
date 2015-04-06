@@ -2,6 +2,7 @@ var express        = require('express');
 var logger				 = require('morgan');
 var bodyParser		 = require('body-parser');
 var models				 = require('./models');
+var request				 = require('request');
 
 var SoundBank = models.sound_banks;
 var Sound     = models.sounds;
@@ -161,6 +162,28 @@ app.delete('/sounds/:id', function (req, res) {
 	});
 });
 
+////////////////
+//   Random		//
+// Background //
+////////////////
+
+
+
+app.get('/background', function (req, res) {
+	request({
+		uri: 'http://wall.alphacoders.com/api1.0/get.php',
+		method: 'GET',
+		qs: {
+			auth: '40079bd1ac47a2574d1ddaa507b1c881',
+			width: '1920',
+			height:'1080',
+			category_id: '23' // pattern category
+		},
+		json: true
+	}, function(error, response, body){
+		res.send(body.wallpapers);
+	});
+});
 
 app.listen(3000, function(){
 	console.log("server runnin on 3000....")

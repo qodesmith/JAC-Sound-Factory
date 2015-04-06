@@ -1,55 +1,70 @@
-#whole {
-	height: 548px;
-	display: inline-block;
-}
-
 #pads-container {
-	background: url('http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png');
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(0,0,0,0.5);
+	width: 530px;
+	height: 530px;
 	padding: 10px;
-	display: inline-block;
-	width: 532px;
-	float: left;
+	border: 3px solid rgba(255,255,255,0.2);
+	border-radius: 25px
 }
 
-#pads-side {
-	height: 100%;
-	display: inline-block;
-}
-
-#side-top {
-	min-height: 50%;
-	background: blue;
-	margin:0;
+#thundercats {
+	position: absolute;
+	display: inline;
 	padding: 0;
+	margin: 0;
+	width: 530px;
+	height: 530px;
+	border-radius: 15px;
+	z-index: -1
 }
 
-#side-bot {
-	min-height: 50%;
-	background: pink;
-	margin:0;
-	padding: 0;
+img {
+	opacity: 0.8;
 }
 
 #top8 {
-
+	text-align: center;
+	/*z-index: 1;*/
 }
 
 #bot8 {
-
+	text-align: center;
+	/*z-index: 1;*/
 }
 
-#drums-container {
-	background: blue;
-	padding: 10px;
-	width: 200px;
-	display: inline-block;
-	color: white;
+#sound-banks {
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 20px;
+	border-top-right-radius: 90px;
+	border-bottom-left-radius: 60px;
+	/*border: 2px solid rgba(255,255,255,0.5);*/
+	box-shadow: 0px 0px 50px #ffffff
 }
 
 #fx-container {
-	background: red;
+	background: rgba(0,0,0,0.2);
 	padding: 10px;
+	margin: 20px;
 	width: 200px;
-	display: inline-block;
 	color: white;
+	border-top-right-radius: 70px;
+}
+
+#drums-container {
+	background: rgba(0,0,0,0.2);
+	padding: 10px;
+	margin: 20px;
+	width: 200px;
+	color: white;
+	border-bottom-left-radius: 40px;
+}
+
+.bank-name {
+	color: black;
 }
