@@ -103,37 +103,37 @@ var keyPresses = function() {
 // Top 8 pads.
 var padTriggerTop = function(pad) {
 
-	// Toggle classes: changes the pads bg color.
-	$('#top-pad-' + pad).toggleClass('pad pad2');
+	// // Toggle classes: changes the pads bg color.
+	// $('#top-pad-' + pad).toggleClass('pad pad2');
 
-	// Grab the pad's audio tag via a jQuery and play it.
-	var audio = $('#top-pad-' + pad).find('audio')[0];
-	audio.load();
-	audio.play();
+	// // Grab the pad's audio tag via a jQuery and play it.
+	// var audio = $('#top-pad-' + pad).find('audio')[0];
+	// audio.load();
+	// audio.play();
 	
-	// If recording, log the pads pressed.
-	var id = 'top-pad-' + pad;
-	var stamp = event.timeStamp - App.recordStart;
-	compositionKeeper.keeper(id, stamp);
+	// // If recording, log the pads pressed.
+	// var id = 'top-pad-' + pad;
+	// var stamp = event.timeStamp - App.recordStart;
+	// compositionKeeper.keeper(id, stamp);
 
-	// Re-toggle classes: timed function, changed the bg color.
-	setTimeout(function () {
-				$('#top-pad-' + pad).toggleClass('pad pad2');
-			}, 100);
+	// // Re-toggle classes: timed function, changed the bg color.
+	// setTimeout(function () {
+	// 			$('#top-pad-' + pad).toggleClass('pad pad2');
+	// 		}, 100);
 };
 
 // Bottom 8 pads.
 var padTriggerBottom = function(pad) {
-	$('#bottom-pad-' + pad).toggleClass('pad pad2');
-	var audio = $('#bottom-pad-' + pad).find('audio')[0];
-	audio.load();
-	audio.play();
+	// $('#bottom-pad-' + pad).toggleClass('pad pad2');
+	// var audio = $('#bottom-pad-' + pad).find('audio')[0];
+	// audio.load();
+	// audio.play();
 
-	var id = 'bottom-pad-' + pad;
-	var stamp = event.timeStamp - App.recordStart;
-	compositionKeeper.keeper(id, stamp);
+	// var id = 'bottom-pad-' + pad;
+	// var stamp = event.timeStamp - App.recordStart;
+	// compositionKeeper.keeper(id, stamp);
 
-	setTimeout(function () {
-				$('#bottom-pad-' + pad).toggleClass('pad pad2');
-			}, 100);
+	// setTimeout(function () {
+	// 			$('#bottom-pad-' + pad).toggleClass('pad pad2');
+	// 		}, 100);
 };
