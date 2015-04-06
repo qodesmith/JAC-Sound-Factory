@@ -1,5 +1,5 @@
 .pad {
-	width: 120px;
+	width: 22%;
 	height: 120px;
 	background: rgba(255,255,255,0.5);
 	border: 1px solid black;
@@ -12,7 +12,7 @@
 
 /* Pad class to toggle for the flash effect */
 .pad2 {
-	width: 120px;
+	width: 22%;
 	height: 120px;
 	background: rgba(255,255,255,0.9);
 	border: 1px solid black;

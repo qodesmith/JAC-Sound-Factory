@@ -1,0 +1,24 @@
+.modal {
+	/*display: none;*/
+	z-index: 9001;
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+	width: 400px;
+	height: 300px;
+	background: white;
+	border-radius: 30px;
+	border-right: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+.modalBackground {
+	display: none;
+	z-index: 9000;
+	position: absolute;
+	background: rgba(0,0,0,0.6);
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}

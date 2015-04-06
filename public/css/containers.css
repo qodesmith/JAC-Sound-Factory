@@ -27,11 +27,13 @@ img {
 }
 
 #top8 {
+	margin: 0 auto;
 	text-align: center;
 	/*z-index: 1;*/
 }
 
 #bot8 {
+	margin: 0 auto;
 	text-align: center;
 	/*z-index: 1;*/
 }

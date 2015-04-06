@@ -167,8 +167,6 @@ app.delete('/sounds/:id', function (req, res) {
 // Background //
 ////////////////
 
-
-
 app.get('/background', function (req, res) {
 	request({
 		uri: 'http://wall.alphacoders.com/api1.0/get.php',
@@ -185,7 +183,7 @@ app.get('/background', function (req, res) {
 	});
 });
 
-app.listen(3000, function(){
+app.listen(process.env.PORT || 3000, function(){
 	console.log("server runnin on 3000....")
 });
 
