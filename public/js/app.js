@@ -27,5 +27,7 @@ var App = {
 	Collections: {},
 	Views: {},
 	recordStart: null,
-	compositionArray: []
+	compositionArray: [],
+	currentDrumsBankID: null,
+	currentFXBankID: null,
 };

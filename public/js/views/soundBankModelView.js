@@ -17,6 +17,9 @@ App.Views.SoundBankModelView = Backbone.View.extend({
 		var collectionName = this.model.attributes.name;
 
 		if(collectionType === 'fx') {
+			// Store our collections ID for later use.
+			App.currentFXBankID = collection;
+
 			// Empty the view containing the collection.
 			$('#top8').empty();
 
@@ -32,6 +35,7 @@ App.Views.SoundBankModelView = Backbone.View.extend({
 			App.soundsFXCollection.fetch();
 
 		} else if(collectionType === 'drums') {
+			App.currentDrumsBankID = collection;
 			$('#bot8').empty();
 			App.soundsDrumsCollection.url = 'sound_banks/' + collection + '/sounds';
 			App.soundsDrumsCollection.reset();

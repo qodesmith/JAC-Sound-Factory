@@ -47,4 +47,10 @@ App.Views.SoundModelView = Backbone.View.extend({
 			compositionKeeper.keeper(id, stamp);
 		}
 	},
+<<<<<<< HEAD
+=======
+	events: {
+		'click': 'play'
+	}
+>>>>>>> save-button
 });
