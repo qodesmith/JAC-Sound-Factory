@@ -1,6 +1,6 @@
 $(function() {
 	console.log('application loaded');
-	App.context = new AudioContext();
+	App.context = new webkitAudioContext();
 	// Sounds - FX
 	App.soundsFXCollection = new App.Collections.SoundsFXCollection;
 	App.soundsFXCollectionView = new App.Views.SoundsFXCollectionView({collection: App.soundsFXCollection});
@@ -21,13 +21,14 @@ $(function() {
 	keyPresses();
 	getBackground();
 });
-
+var canvas, ctx, source, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
 var App = {
 	Models: {},
 	Collections: {},
 	Views: {},
-	recordStart: null,
+	recordStart: null, // Holds the 1st timeStamp in a recording
 	compositionArray: [],
 	currentDrumsBankID: null,
 	currentFXBankID: null,
 };
+

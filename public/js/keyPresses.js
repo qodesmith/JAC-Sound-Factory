@@ -79,11 +79,6 @@ var padTriggerTop = function(pad) {
 	// Toggle classes: changes the pads bg color.
 	$('#top-pad-' + pad).toggleClass('pad pad2');
 	$('#top-pad-' + pad)[0].play();
-	// If recording, log the pads pressed.
-	var id = 'top-pad-' + pad;
-	var stamp = event.timeStamp - App.recordStart;
-	
-	compositionKeeper.keeper(id, stamp);
 
 	// Re-toggle classes: timed function, changed the bg color.
 	setTimeout(function () {
@@ -95,9 +90,6 @@ var padTriggerTop = function(pad) {
 var padTriggerBottom = function(pad) {
 	$('#bottom-pad-' + pad).toggleClass('pad pad2');
 	$('#bottom-pad-' + pad)[0].play();
-	var id = 'bottom-pad-' + pad;
-	var stamp = event.timeStamp - App.recordStart;
-	compositionKeeper.keeper(id, stamp);
 	setTimeout(function () {
 		$('#bottom-pad-' + pad).toggleClass('pad pad2');
 	}, 100);

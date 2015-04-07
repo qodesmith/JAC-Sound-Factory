@@ -18,19 +18,30 @@ App.Views.SoundModelView = Backbone.View.extend({
 	  request.responseType = 'arraybuffer';
 	  request.onload = function() {
 	    App.context.decodeAudioData(request.response, function(buffer) { 
-	      pad.buffer = buffer;
+	    	pad.buffer = buffer;
+	    	canvas = $("#visual")[0];
+				ctx = canvas.getContext('2d');
 	    });
 	  }
 	  request.send();
 	},
 	addAudioProperties: function(pad) {
-		console.log(pad);
   	pad.source = $(pad).find('.pad-name').data('sound');
   	this.loadAudio(pad, pad.source);
-  	pad.loop = false;
+// <<<<<<< HEAD
+//   		pad.play = function() {
+//   		  // var source = App.context.createBufferSource();
+//   		  // source.buffer = pad.buffer;
+//   		  // source.connect(App.context.destination);
+  		  
+//   		  source.start(0);
+//   		  pad.source = source;
+//   		}
+// =======
+  	// pad.loop = false;
   	pad.play = function() {
   		if(App.recordStart) {
-				var id = event.currentTarget.id; 
+				var id = pad.id;
 				var stamp = event.timeStamp - App.recordStart;
 				// Pass our timestamp value to the keeper function.
 				compositionKeeper.keeper(id, stamp);
@@ -38,9 +49,12 @@ App.Views.SoundModelView = Backbone.View.extend({
   	  var source = App.context.createBufferSource();
   	  source.buffer = pad.buffer;
   	  source.connect(App.context.destination);
-  	  source.loop = pad.loop;
+  	  analyser = App.context.createAnalyser();
+  		source.connect(analyser);
+  	  analyser.connect(App.context.destination);
   	  source.start(0);
   	  pad.source = source;
+  		frameLooper();
   	},
   	pad.stop = function() {
   		if(pad.source) { pad.source.stop();
