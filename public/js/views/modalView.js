@@ -6,7 +6,7 @@ App.Views.ModalView = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
-		this.$el.append(this.template()).css('display','none').fadeIn(500);
+		this.$el.append(this.template()).fadeIn(500);
 		App.modalStatus = true;
 	},
 	events: {

@@ -1,6 +1,7 @@
 $(function() {
 	console.log('application loaded');
 	App.context = new webkitAudioContext();
+	App.modal = new App.Views.ModalView();
 	// Sounds - FX
 	App.soundsFXCollection = new App.Collections.SoundsFXCollection;
 	App.soundsFXCollectionView = new App.Views.SoundsFXCollectionView({collection: App.soundsFXCollection});
@@ -25,7 +26,7 @@ $(function() {
 	// Function to map pads to keys on the keyboard
 	keyPresses();
 	getBackground();
-	
+
 	$('#record').on('click', controls.record);
 	$('#play').on('click', controls.play);
 	// $('#stop').on('click', controls.stop);

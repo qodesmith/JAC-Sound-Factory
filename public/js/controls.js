@@ -133,7 +133,7 @@ var controls = {
 			// Darken the background.
 			$('div.modalBackground').fadeIn(100);
 			// Create the new modal.
-			var newModal = new App.Views.ModalView;
+			
 			$('[type = "submit"]').on('click', controls.save);
 		};
 
