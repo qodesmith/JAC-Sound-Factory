@@ -28,10 +28,5 @@ App.Views.SoundModelView = Backbone.View.extend({
 	},
 	events: {
 		'click': 'play'
-	},
-	// newSound = function(url) {
-	// 	var audio = new Audio();
-	// 	audio.src = url;
-	// 	audio.controls = false;
-	// },
+	}
 });

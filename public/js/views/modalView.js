@@ -6,12 +6,13 @@ App.Views.ModalView = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
-		this.$el.append(this.template());
+		this.$el.append(this.template()).css('display','none').fadeIn(500);
 	},
 	events: {
-		'click': 'close'
+		'click div#x': 'close'
 	},
 	close: function() {
-		console.log('modal clicked');
+		$('.modalBackground').fadeOut();
+		$('.modal').remove();
 	}
 });
