@@ -18,9 +18,9 @@ $(function() {
 	App.soundBanks.fetch();
 
 	// Latest Compositions Section
-	App.latestCompositions = new App.Collections.LatestCompositionsCollection;
-	App.latestCompositionsView = new App.Views.LatestCompositionsView({collection: App.latestCompositions});
-	App.latestCompositions.fetch();
+	// App.latestCompositions = new App.Collections.LatestCompositionsCollection;
+	// App.latestCompositionsView = new App.Views.LatestCompositionsView({collection: App.latestCompositions});
+	// App.latestCompositions.fetch();
 
 	// Function to map pads to keys on the keyboard
 	keyPresses();
