@@ -19,32 +19,36 @@ App.Views.SoundModelView = Backbone.View.extend({
 	  request.onload = function() {
 	    App.context.decodeAudioData(request.response, function(buffer) { 
 	      pad.buffer = buffer;
-	      console.log(buffer);
 	    });
 	  }
 	  request.send();
-	  console.log(request);
 	},
 	addAudioProperties: function(pad) {
+		console.log(pad);
   	pad.source = $(pad).find('.pad-name').data('sound');
-  	console.log(pad.source);
   	this.loadAudio(pad, pad.source);
-  		pad.play = function() {
-  		  var source = App.context.createBufferSource();
-  		  source.buffer = pad.buffer;
-  		  source.connect(App.context.destination);
-  		  source.start(0);
-  		  pad.source = source;
-  		}
-	},
-	padStamp: function() {
-		//Only record the stamps IF App.recordStart is truthy
-		if(App.recordStart) {
-			var id 		= event.currentTarget.id; 
-			var stamp = event.timeStamp - App.recordStart;
-
-			// Pass our timestamp value to the keeper function.
-			compositionKeeper.keeper(id, stamp);
-		}
+  	pad.loop = false;
+  	pad.play = function() {
+  		if(App.recordStart) {
+				var id = event.currentTarget.id; 
+				var stamp = event.timeStamp - App.recordStart;
+				// Pass our timestamp value to the keeper function.
+				compositionKeeper.keeper(id, stamp);
+			}
+  	  var source = App.context.createBufferSource();
+  	  source.buffer = pad.buffer;
+  	  source.connect(App.context.destination);
+  	  source.loop = pad.loop;
+  	  source.start(0);
+  	  pad.source = source;
+  	},
+  	pad.stop = function() {
+  		if(pad.source) { pad.source.stop();
+ 		 	}
+ 		}
 	},
 });
+
+
+
+

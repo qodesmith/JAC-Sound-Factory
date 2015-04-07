@@ -53,6 +53,8 @@
 		<button id="play">Play</button>
 		<button id="stop">Stop</button>
 		<button id="save">Save</button>
+		<button type="button" class="loop-button" data-toggle-text="End Loop" value="false">Loop</button>
+
 	</div>
 
 	<div id="pads-container">
@@ -70,7 +72,7 @@
 		<section class="test">
 			<div id="{{id}}" class="pad-name" data-id="{{id}}" data-sound="{{url}}">{{name}}</div>
 		</section>
-		<audio src="{{url}}"></audio>
+<!-- 		<audio src="{{url}}"></audio> -->
 	</template>
 
 	<template id="soundBank-template">
