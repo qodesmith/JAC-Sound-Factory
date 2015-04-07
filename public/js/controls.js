@@ -132,8 +132,10 @@ var controls = {
 
 			// Darken the background.
 			$('div.modalBackground').fadeIn(100);
-			// Create the new modal.
-			
+
+			// Displa the modal.
+			$('.modal').fadeIn(500);
+
 			$('[type = "submit"]').on('click', controls.save);
 		};
 
