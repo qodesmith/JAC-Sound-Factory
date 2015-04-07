@@ -79,35 +79,21 @@ var keyPresses = function() {
 // Top 8 pads.
 var padTriggerTop = function(pad) {
 
-	// if(!App.modalStatus) {
+	// Toggle classes: changes the pads bg color.
+	$('#top-pad-' + pad).toggleClass('pad pad2');
+	$('#top-pad-' + pad)[0].play();
 
-		// Toggle classes: changes the pads bg color.
+	// Re-toggle classes: timed function, changed the bg color.
+	setTimeout(function () {
 		$('#top-pad-' + pad).toggleClass('pad pad2');
-		$('#top-pad-' + pad)[0].play();
-		
-		// If recording, log the pads pressed.
-		var id = 'top-pad-' + pad;
-		var stamp = event.timeStamp - App.recordStart;
-		
-		compositionKeeper.keeper(id, stamp);
-
-		// Re-toggle classes: timed function, changed the bg color.
-		setTimeout(function () {
-			$('#top-pad-' + pad).toggleClass('pad pad2');
-		}, 100);
-	// };
+	}, 100);
 };
 
 // Bottom 8 pads.
 var padTriggerBottom = function(pad) {
-	// if(!App.modalStatus) {
+	$('#bottom-pad-' + pad).toggleClass('pad pad2');
+	$('#bottom-pad-' + pad)[0].play();
+	setTimeout(function () {
 		$('#bottom-pad-' + pad).toggleClass('pad pad2');
-		$('#bottom-pad-' + pad)[0].play();
-		var id = 'bottom-pad-' + pad;
-		var stamp = event.timeStamp - App.recordStart;
-		compositionKeeper.keeper(id, stamp);
-		setTimeout(function () {
-			$('#bottom-pad-' + pad).toggleClass('pad pad2');
-		}, 100);
-	// }
+	}, 100);
 };

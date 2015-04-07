@@ -23,18 +23,19 @@ var controls = {
 			// If this is the second time hitting the record button,
 			// the status will be true, and this will be ignored.
 			if(!controls.recordingStatus) {
-				App.recordStart = null; // Only reset on 1st record-button press.
+				App.compositionArray.length = 0;
+				App.recordStart = event.timeStamp;
 				$('#play').attr('disabled','');
-				// debugger; //1
 			};
 
 			// 2nd record-button click executions.
 			if(controls.recordingStatus) {
 				$('#play').removeAttr('disabled');
-				// debugger; // 2
 				// App.recordStart = App.compositionArray[0].time
 				if(App.compositionArray.length) {
 					compositionKeeper.removeSilence();
+					App.recordStart = null;
+
 				}
 			};
 
@@ -43,14 +44,6 @@ var controls = {
 
 			// Turn the recording button red.
 			$('#record').toggleClass('recordOn');
-			// debugger; // 3
-
-			// If recordStart is false (empty), reset our composition
-			// array and set recordStart time to event.timeStamp.
-			if(!App.recordStart) {
-				App.compositionArray.length = 0;
-				App.recordStart = event.timeStamp;
-			};
 
 			// Grey out play button
 			$('#play').toggleClass('playOff');
@@ -73,20 +66,14 @@ var controls = {
 
 				var padStroke = setTimeout(function() {
 					console.log('New padStroke, #' + i);
-
-					// Play using the Web Audio API
+					var audio = $('#' + what).find('audio')[0];
 					$('#' + what)[0].play();
-
 					if (i === composition.length - 1) {
 						controls.playStatus = !controls.playStatus;
 						$('#play').toggleClass('playOn');
 					};
 				}, when);
 			};
-
-			var stop = function() {
-
-			}
 
 			for(var i = 0; i < composition.length; i++) {
 				var when = composition[i].time;

@@ -40,8 +40,9 @@
 	<script src="js/views/soundBanksDrumsCollectionView.js"></script>
 	<script src="js/views/soundsFXCollectionView.js"></script>
 	<script src="js/views/soundsDrumsCollectionView.js"></script>
-
 	<script src="js/views/modalView.js"></script>
+
+	<script type="text/javascript" src="js/visualizer/frameLooper.js"></script>
 
 </head>
 <body>
@@ -70,6 +71,7 @@
 		<section class="test">
 			<div id="{{id}}" class="pad-name" data-id="{{id}}" data-sound="{{url}}">{{name}}</div>
 		</section>
+
 	</template>
 
 	<template id="soundBank-template">
@@ -84,6 +86,9 @@
 			<input type="submit" value="Save">
 		</div>
 	</template>
+
+	<canvas id="visual", width="2000", height="600">		
+	</canvas>
 
 </body>
 </html>

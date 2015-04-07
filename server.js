@@ -164,9 +164,9 @@ app.delete('/sounds/:id', function (req, res) {
 	});
 });
 
-/////////////////
-////  USERS  ////
-/////////////////
+/////////////
+//  USERS  //
+/////////////
 
 app.get('/users', function (req, res){
 	User
