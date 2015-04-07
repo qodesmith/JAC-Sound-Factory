@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="css/controls.css">
 	<link rel="stylesheet" href="css/modals.css">
 	<link rel="stylesheet" href="css/visuals.css">
+	<link rel="stylesheet" href="css/compositions.css">
 
 	<script src="js/keyPresses.js"></script>
 	<script src="js/compositionKeeper.js"></script>
@@ -58,12 +59,12 @@
 	<div id="controls">
 		<button id="record">Record</button>
 		<button id="play">Play</button>
-		<button id="stop">Stop</button>
+		<!--<button id="stop">Stop</button>-->
 		<button id="save">Save</button>
 	</div>
 
 	<div id="pads-container">
-		<img id ="thundercats" src="http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png"	>
+		<!--<img id ="thundercats" src="http://fc02.deviantart.net/fs70/f/2011/172/f/7/thundercats_logo_by_2barquack-d3jkvoi.png"	>-->
 		<div id="top8"></div>
 		<div id="bot8"></div>
 	</div>
@@ -73,8 +74,17 @@
 		<div id="drums-container"><h3>DRUMS</h3></div>
 	</div>
 
-	<div id="compositions">
-		
+	<div id="compositions-container">
+		<div id="compositions">
+			<div id="comp-title">
+				<h3>RECENT<br>SONIC<br>AWESOMENESS</h3>
+			</div>
+		</div>
+	</div>
+
+	<div id="directions">
+		Use your keyboard to trigger the pads:<br>
+		"1" - "4" down to "V" - "Z"
 	</div>
 
 	<template id="sound-template">
@@ -104,13 +114,7 @@
 	</template>
 
 	<template id="composition-template">
-		<span>Play:           </span><span class="composition-name">{{name}}</span>
-	</template>
-
-	<template id="test">
-		<p>{{id}}</p>
-		<p>{{fx_bank_id}}</p>
-		<p>{{user_id}}</p>
+		<div class="composition-name">{{name}}</div>
 	</template>
 
 	<canvas id="visual"></canvas>

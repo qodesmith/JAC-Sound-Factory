@@ -130,10 +130,12 @@ var controls = {
 		// we're NOT recording.
 		if(App.compositionArray.length && !controls.playStatus && !controls.recordingStatus) {
 
+			App.modalStatus = true;
+
 			// Darken the background.
 			$('div.modalBackground').fadeIn(100);
 
-			// Displa the modal.
+			// Display the modal.
 			$('.modal').fadeIn(500);
 
 			$('[type = "submit"]').on('click', controls.save);
@@ -148,33 +150,29 @@ var controls = {
 		var userName = $('[name = "yourName"]').val();
 		var compName = $('[name = "composition"]').val();
 
-		if(confirm('Is this info correct?\nYour name: ' + userName + '\nComposition name: ' + compName)) {
-			// Call to create a new user AND create a new composition
-			// AND assign that composition to the user just created.
+		// Call to create a new user AND create a new composition
+		// AND assign that composition to the user just created.
+		$.ajax({
+			url: '/users',
+			method: 'POST',
+			data: {user_name: userName}
+		}).done(function(res) {
+			var userId = res.id;
 			$.ajax({
-				url: '/users',
+				url:'/users/' + userId + '/compositions',
 				method: 'POST',
-				data: {user_name: userName}
-			}).done(function(res) {
-				var userId = res.id;
-				$.ajax({
-					url:'/users/' + userId + '/compositions',
-					method: 'POST',
-					data: {
-						fx_bank_id: App.currentFXBankID,
-						drum_bank_id: App.currentDrumsBankID,
-						composition: newComposition,
-						name: compName,
-						user_id: userId
-					}
-				});
+				data: {
+					fx_bank_id: App.currentFXBankID,
+					drum_bank_id: App.currentDrumsBankID,
+					composition: newComposition,
+					name: compName,
+					user_id: userId
+				}
 			});
+		});
 
-			// Remove the dark background.
-			$('.modalBackground').hide();
-			App.modalStatus = false;
-
-		}
-
+		// Remove the dark background.
+		$('.modalBackground').hide();
+		App.modalStatus = false;
 	}
 };
