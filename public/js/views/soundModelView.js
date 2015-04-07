@@ -30,21 +30,17 @@ App.Views.SoundModelView = Backbone.View.extend({
   	console.log(pad.source);
   	this.loadAudio(pad, pad.source);
   		pad.play = function() {
+  			if(App.recordStart) {
+					var id = event.currentTarget.id; 
+					var stamp = event.timeStamp - App.recordStart;
+					// Pass our timestamp value to the keeper function.
+					compositionKeeper.keeper(id, stamp);
+				}
   		  var source = App.context.createBufferSource();
   		  source.buffer = pad.buffer;
   		  source.connect(App.context.destination);
   		  source.start(0);
   		  pad.source = source;
   		}
-	},
-	padStamp: function() {
-		//Only record the stamps IF App.recordStart is truthy
-		if(App.recordStart) {
-			var id 		= event.currentTarget.id; 
-			var stamp = event.timeStamp - App.recordStart;
-
-			// Pass our timestamp value to the keeper function.
-			compositionKeeper.keeper(id, stamp);
-		}
-	},
+	}
 });
