@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="css/drumBanks.css">
 	<link rel="stylesheet" href="css/controls.css">
 	<link rel="stylesheet" href="css/modals.css">
+	<link rel="stylesheet" href="css/visuals.css">
 
 	<script src="js/keyPresses.js"></script>
 	<script src="js/compositionKeeper.js"></script>
@@ -89,7 +90,7 @@
 
 	<template id="modal-template">
 		<div class="modal">
-			<div id="x"><span>x</span></div>
+			<div id="close"><span>x</span></div>
 			<div id="modal-name">
 				<span class="labels">NAME:</span><br>
 				<input type="text" name="yourName" placeholder="Your name here..."><br>
@@ -112,8 +113,7 @@
 		<p>{{user_id}}</p>
 	</template>
 
-	<canvas id="visual", width="2000", height="600">		
-	</canvas>
+	<canvas id="visual"></canvas>
 
 </body>
 </html>
