@@ -28,6 +28,7 @@ var App = {
 	Views: {},
 	recordStart: null,
 	compositionArray: [],
+	timeoutArray: [],
 	currentDrumsBankID: null,
 	currentFXBankID: null,
 	modalStatus: false
