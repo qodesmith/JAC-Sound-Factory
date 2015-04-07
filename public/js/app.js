@@ -28,7 +28,9 @@ var App = {
 	Views: {},
 	recordStart: null, // Holds the 1st timeStamp in a recording
 	compositionArray: [],
+	timeoutArray: [],
 	currentDrumsBankID: null,
 	currentFXBankID: null,
+	modalStatus: false
 };
 

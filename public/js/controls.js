@@ -64,24 +64,6 @@ var controls = {
 			// loop below. This function is triggered by that loop.
 			var doSetTimeout = function(what, when, i) {
 
-				// STOP functionality:
-				// cancels the below timeout functions.
-				// $('#stop').on('click', function() {
-				// 	debugger;
-
-				// 	// Revert the play status
-				// 	controls.playStatus = !controls.playStatus;
-
-				// 	// Turn the play button 'off'.
-				// 	$('#play').toggleClass('playOn');
-					
-				// 	// Stop all the padStroke timeout functions.
-				// 	clearTimeout(padStroke);
-				// 	console.log('yo')
-
-				// });
-
-				// Timeout function
 				var padStroke = setTimeout(function() {
 					console.log('New padStroke, #' + i);
 					var audio = $('#' + what).find('audio')[0];
@@ -108,6 +90,46 @@ var controls = {
 			console.log('Recording in session...')
 		};
 	},
+	play2: function() {
+		if(!controls.recordingStatus && !controls.playStatus && App.compositionArray.length) {
+			// Change the playStatus to indicate currenty playing.
+			controls.playStatus = !controls.playStatus;
+
+			$('#play').toggleClass('playOn');
+
+			var composition = App.compositionArray;
+
+			var doSetTimeout = function(what, when, i) {
+
+				var padStroke = setTimeout(function() {
+					console.log('New padStroke, #' + i);
+
+					// Play using the Web Audio API
+					$('#' + what)[0].play();
+					
+					if (i === composition.length - 1) {
+						controls.playStatus = !controls.playStatus;
+						$('#play').toggleClass('playOn');
+					};
+				}, when);
+			};
+
+			for(var i = 0; i < composition.length; i++) {
+				var when = composition[i].time;
+				var what = composition[i].id;
+
+				App.timeoutArray.push(doSetTimeout);
+				App.timeoutArray[i](what, when, i);
+			};
+
+		} else if(controls.recordingStatus) {
+			// flash an X over the play button
+			// using the timeout function
+			console.log('Recording in session...')
+		};
+
+
+	},
 	showModal: function() {
 		// Only save IF:
 		// we HAVE a populated array,
@@ -128,8 +150,8 @@ var controls = {
 		// JS object to a string for storing in our database.
 		// JSON.parse(x) = the opposite.
 		var newComposition = JSON.stringify(App.compositionArray);
-		var userName = $('[name = "yourName"]').val(); //
-		var compName = $('[name = "composition"]').val(); //
+		var userName = $('[name = "yourName"]').val();
+		var compName = $('[name = "composition"]').val();
 
 		if(confirm('Is this info correct?\nYour name: ' + userName + '\nComposition name: ' + compName)) {
 			// Call to create a new user AND create a new composition
@@ -141,11 +163,11 @@ var controls = {
 			}).done(function(res) {
 				var userId = res.id;
 				$.ajax({
-					url:'/compositions',
+					url:'/users/' + userId + '/compositions',
 					method: 'POST',
 					data: {
 						fx_bank_id: App.currentFXBankID,
-						drums_bank_id: App.currentDrumsBankID,
+						drum_bank_id: App.currentDrumsBankID,
 						composition: newComposition,
 						name: compName,
 						user_id: userId
@@ -154,7 +176,8 @@ var controls = {
 			});
 
 			// Remove the dark background.
-			$('.modalBackground').hide()
+			$('.modalBackground').hide();
+			App.modalStatus = false;
 
 		}
 
