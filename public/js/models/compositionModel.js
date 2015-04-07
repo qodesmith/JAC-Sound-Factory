@@ -1,0 +1,1 @@
+App.Models.LatestCompositionModel = Backbone.Model.extend({});
