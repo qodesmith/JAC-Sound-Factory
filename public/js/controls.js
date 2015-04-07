@@ -92,8 +92,8 @@ var controls = {
 				var padStroke = setTimeout(function() {
 					console.log('New padStroke, #' + i);
 					var audio = $('#' + what).find('audio')[0];
-					audio.load();
-					audio.play();
+					debugger; 
+					$('#' + what)[0].play();
 					if (i === composition.length - 1) {
 						controls.playStatus = !controls.playStatus;
 						$('#play').toggleClass('playOn');
