@@ -2,7 +2,7 @@ $(function() {
 	$('#record').on('click', controls.record);
 	$('#play').on('click', controls.play);
 	// $('#stop').on('click', controls.stop);
-	$('#save').on('click', controls.save);
+	$('#save').on('click', controls.showModal);
 });
 
 // var timer 	 = null,
@@ -23,18 +23,19 @@ var controls = {
 			// If this is the second time hitting the record button,
 			// the status will be true, and this will be ignored.
 			if(!controls.recordingStatus) {
-				App.recordStart = null; // Only reset on 1st record-button press.
+				App.compositionArray.length = 0;
+				App.recordStart = event.timeStamp;
 				$('#play').attr('disabled','');
-				// debugger; //1
 			};
 
 			// 2nd record-button click executions.
 			if(controls.recordingStatus) {
 				$('#play').removeAttr('disabled');
-				// debugger; // 2
 				// App.recordStart = App.compositionArray[0].time
 				if(App.compositionArray.length) {
 					compositionKeeper.removeSilence();
+					App.recordStart = null;
+
 				}
 			};
 
@@ -43,14 +44,6 @@ var controls = {
 
 			// Turn the recording button red.
 			$('#record').toggleClass('recordOn');
-			// debugger; // 3
-
-			// If recordStart is false (empty), reset our composition
-			// array and set recordStart time to event.timeStamp.
-			if(!App.recordStart) {
-				App.compositionArray.length = 0;
-				App.recordStart = event.timeStamp;
-			};
 
 			// Grey out play button
 			$('#play').toggleClass('playOff');
@@ -92,18 +85,13 @@ var controls = {
 				var padStroke = setTimeout(function() {
 					console.log('New padStroke, #' + i);
 					var audio = $('#' + what).find('audio')[0];
-					audio.load();
-					audio.play();
+					$('#' + what)[0].play();
 					if (i === composition.length - 1) {
 						controls.playStatus = !controls.playStatus;
 						$('#play').toggleClass('playOn');
 					};
 				}, when);
 			};
-
-			var stop = function() {
-
-			}
 
 			for(var i = 0; i < composition.length; i++) {
 				var when = composition[i].time;
@@ -120,24 +108,55 @@ var controls = {
 			console.log('Recording in session...')
 		};
 	},
-	save: function() {
-		console.log('Save clicked');
-
-		// Only save IF we have a populated array,
-		// IF we're not playing, and IF we're not recording.
+	showModal: function() {
+		// Only save IF:
+		// we HAVE a populated array,
+		// we're NOT playing
+		// we're NOT recording.
 		if(App.compositionArray.length && !controls.playStatus && !controls.recordingStatus) {
-			
-			// JS object to a string for storing in our database.
-			// JSON.parse(x) = the opposite.
-			var newComposition = JSON.stringify(App.compositionArray);
+
+			// Darken the background.
+			$('div.modalBackground').fadeIn(100);
+			// Create the new modal.
+			var newModal = new App.Views.ModalView;
+			$('[type = "submit"]').on('click', controls.save);
 		};
 
-		// Darken the background.
-		$('div.modalBackground').fadeIn(100);
+	},
+	save: function() {
+		
+		// JS object to a string for storing in our database.
+		// JSON.parse(x) = the opposite.
+		var newComposition = JSON.stringify(App.compositionArray);
+		var userName = $('[name = "yourName"]').val(); //
+		var compName = $('[name = "composition"]').val(); //
 
-		var newModal = new App.Views.ModalView;
+		if(confirm('Is this info correct?\nYour name: ' + userName + '\nComposition name: ' + compName)) {
+			// Call to create a new user AND create a new composition
+			// AND assign that composition to the user just created.
+			$.ajax({
+				url: '/users',
+				method: 'POST',
+				data: {user_name: userName}
+			}).done(function(res) {
+				var userId = res.id;
+				$.ajax({
+					url:'/compositions',
+					method: 'POST',
+					data: {
+						fx_bank_id: App.currentFXBankID,
+						drums_bank_id: App.currentDrumsBankID,
+						composition: newComposition,
+						name: compName,
+						user_id: userId
+					}
+				});
+			});
 
-		// Remove the dark background.
-		// $('.modalBackground').hide()
+			// Remove the dark background.
+			$('.modalBackground').hide()
+
+		}
+
 	}
 };

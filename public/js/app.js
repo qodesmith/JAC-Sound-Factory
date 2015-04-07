@@ -26,6 +26,9 @@ var App = {
 	Models: {},
 	Collections: {},
 	Views: {},
-	recordStart: null,
-	compositionArray: []
-}
+	recordStart: null, // Holds the 1st timeStamp in a recording
+	compositionArray: [],
+	currentDrumsBankID: null,
+	currentFXBankID: null,
+};
+
