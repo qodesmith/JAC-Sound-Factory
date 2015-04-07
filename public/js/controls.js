@@ -153,11 +153,11 @@ var controls = {
 			}).done(function(res) {
 				var userId = res.id;
 				$.ajax({
-					url:'/compositions',
+					url:'/users/' + userId + '/compositions',
 					method: 'POST',
 					data: {
 						fx_bank_id: App.currentFXBankID,
-						drums_bank_id: App.currentDrumsBankID,
+						drum_bank_id: App.currentDrumsBankID,
 						composition: newComposition,
 						name: compName,
 						user_id: userId
