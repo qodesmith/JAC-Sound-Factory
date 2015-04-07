@@ -30,4 +30,5 @@ var App = {
 	compositionArray: [],
 	currentDrumsBankID: null,
 	currentFXBankID: null,
+	modalStatus: false
 };

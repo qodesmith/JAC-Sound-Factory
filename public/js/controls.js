@@ -166,7 +166,8 @@ var controls = {
 			});
 
 			// Remove the dark background.
-			$('.modalBackground').hide()
+			$('.modalBackground').hide();
+			App.modalStatus = false;
 
 		}
 
