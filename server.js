@@ -219,10 +219,9 @@ app.delete('/users/:id', function (req, res){
 	});
 });
 
-/////////////////
-// compositions//           
-//      ///    //
-/////////////////
+//////////////////
+// COMPOSITIONS //           
+//////////////////
 
 app.get('/compositions', function (req, res) {
 	Composition
