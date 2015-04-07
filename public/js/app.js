@@ -32,7 +32,7 @@ var App = {
 	Collections: {},
 	Views: {},
 	recordStart: null, // Holds the 1st timeStamp in a recording
-	compositionArray: [],
+	compositionArray: [1],
 	timeoutArray: [],
 	currentDrumsBankID: null,
 	currentFXBankID: null,

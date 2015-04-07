@@ -10,7 +10,7 @@ App.Views.ModalView = Backbone.View.extend({
 		App.modalStatus = true;
 	},
 	events: {
-		'click div#x': 'close'
+		'click #close span': 'close'
 	},
 	close: function() {
 		$('.modalBackground').fadeOut();
