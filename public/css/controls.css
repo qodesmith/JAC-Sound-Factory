@@ -14,9 +14,10 @@
 #controls {
 	position: fixed;
 	left: 50%;
+	top: 20px;
 	transform: translateX(-50%);
 	/*top: 0px;*/
-	width: 450px;
+	width: 280px;
 	height: 50px;
 	background: rgba(255,255,255,0.7);
 	margin: 0 auto;

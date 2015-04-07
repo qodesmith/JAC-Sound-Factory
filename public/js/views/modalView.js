@@ -7,7 +7,6 @@ App.Views.ModalView = Backbone.View.extend({
 	},
 	render: function() {
 		this.$el.append(this.template());
-		App.modalStatus = true;
 	},
 	events: {
 		'click #close span': 'close'

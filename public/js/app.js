@@ -25,7 +25,7 @@ $(function() {
 
 	// Function to map pads to keys on the keyboard
 	keyPresses();
-	getBackground();
+	// getBackground();
 
 	$('#record').on('click', controls.record);
 	$('#play').on('click', controls.play);
@@ -38,7 +38,7 @@ var App = {
 	Collections: {},
 	Views: {},
 	recordStart: null, // Holds the 1st timeStamp in a recording
-	compositionArray: [1],
+	compositionArray: [],
 	timeoutArray: [],
 	currentDrumsBankID: null,
 	currentFXBankID: null,

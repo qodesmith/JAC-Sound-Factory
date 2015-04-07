@@ -1,0 +1,41 @@
+#compositions-container {
+	width: 300;
+	position: absolute;
+	display: inline-block;
+	right: 50px;
+	top: 50%;
+	transform: translateY(-50%);
+	/*padding:10px;*/
+	border-top-left-radius: 90px;
+	border-bottom-right-radius: 90px;
+	box-shadow: 0px 0px 50px #ffffff
+}
+
+#compositions {
+	background: rgba(0,0,0,0.2);
+	padding: 20px;
+	margin: 20px;
+	width: 200px;
+	color: white;
+	border-top-left-radius: 70px;
+	border-bottom-right-radius: 70px;
+}
+
+#comp-title {
+	text-align: right;
+}
+
+
+.composition-name {
+	color: black;
+	background: lightgrey;
+	padding: 5px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.composition-name:hover {
+	cursor: pointer;
+	color: red;
+}
