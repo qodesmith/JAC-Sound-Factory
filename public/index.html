@@ -42,9 +42,10 @@
 	<script src="js/views/soundsDrumsCollectionView.js"></script>
 	<script src="js/views/modalView.js"></script>
 
-	<!--<script scr="js/models/compositionModel.js"></script>
-	<script scr="js/views/latestCompositionsView.js"></script>
-	<script scr="js/collections/latestCompositionsCollection.js"></script>-->
+	<script src="js/models/compositionModel.js"></script>
+	<script src="js/views/compositionModelView.js"></script>
+	<script src="js/collections/compositionsCollection.js"></script>
+	<script src="js/views/compositionsCollectionView.js"></script>
 
 	<script type="text/javascript" src="js/visualizer/frameLooper.js"></script>
 
@@ -71,7 +72,7 @@
 		<div id="drums-container"><h3>DRUMS</h3></div>
 	</div>
 
-	<div id="latest-compositions">
+	<div id="compositions">
 		
 	</div>
 
@@ -99,6 +100,10 @@
 			</div>
 			<input type="submit" value="Save">
 		</div>
+	</template>
+
+	<template id="composition-template">
+		<span>Play:           </span><span class="composition-name">{{name}}</span>
 	</template>
 
 	<template id="test">

@@ -10,6 +10,7 @@
 }
 
 .modal {
+	display: none;
 	z-index: 9001;
 	position: relative;
 	top: 50%;

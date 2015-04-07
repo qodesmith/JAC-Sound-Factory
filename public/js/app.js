@@ -1,6 +1,7 @@
 $(function() {
 	console.log('application loaded');
 	App.context = new webkitAudioContext();
+	App.modal = new App.Views.ModalView();
 	// Sounds - FX
 	App.soundsFXCollection = new App.Collections.SoundsFXCollection;
 	App.soundsFXCollectionView = new App.Views.SoundsFXCollectionView({collection: App.soundsFXCollection});
@@ -18,13 +19,18 @@ $(function() {
 	App.soundBanks.fetch();
 
 	// Latest Compositions Section
-	// App.latestCompositions = new App.Collections.LatestCompositionsCollection;
-	// App.latestCompositionsView = new App.Views.LatestCompositionsView({collection: App.latestCompositions});
-	// App.latestCompositions.fetch();
+	App.compositionsCollection = new App.Collections.CompositionsCollection;
+	App.compositionsView = new App.Views.CompositionsView({collection: App.compositionsCollection});
+	App.compositionsCollection.fetch();
 
 	// Function to map pads to keys on the keyboard
 	keyPresses();
 	getBackground();
+
+	$('#record').on('click', controls.record);
+	$('#play').on('click', controls.play);
+	// $('#stop').on('click', controls.stop);
+	$('#save').on('click', controls.showModal);
 });
 var canvas, ctx, source, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
 var App = {

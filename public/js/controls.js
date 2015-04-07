@@ -1,10 +1,3 @@
-$(function() {
-	$('#record').on('click', controls.record);
-	$('#play').on('click', controls.play);
-	// $('#stop').on('click', controls.stop);
-	$('#save').on('click', controls.showModal);
-});
-
 // var timer 	 = null,
 // 		interval = 1000,
 // 		value		 = 0;
@@ -140,7 +133,7 @@ var controls = {
 			// Darken the background.
 			$('div.modalBackground').fadeIn(100);
 			// Create the new modal.
-			var newModal = new App.Views.ModalView;
+			
 			$('[type = "submit"]').on('click', controls.save);
 		};
 
