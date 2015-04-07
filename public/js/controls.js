@@ -1,10 +1,3 @@
-$(function() {
-	$('#record').on('click', controls.record);
-	$('#play').on('click', controls.play);
-	// $('#stop').on('click', controls.stop);
-	$('#save').on('click', controls.showModal);
-});
-
 // var timer 	 = null,
 // 		interval = 1000,
 // 		value		 = 0;

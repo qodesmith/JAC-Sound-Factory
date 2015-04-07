@@ -243,14 +243,6 @@ app.get('/users/:id/compositions', function (req, res) {
 	});
 });
 
-app.get('/latest', function (req, res) {
-	Composition
-		.findAll()
-		.then(function(composition){
-			res.send(composition)
-		})
-})
-
 app.post('/users/:id/compositions', function (req, res) {
 	User
 	.findOne(req.params.id)
