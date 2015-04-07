@@ -19,6 +19,8 @@ App.Views.SoundModelView = Backbone.View.extend({
 	  request.onload = function() {
 	    App.context.decodeAudioData(request.response, function(buffer) { 
 	      pad.buffer = buffer;
+	      canvas = $("#visual")[0];
+				ctx = canvas.getContext('2d');
 	      console.log(buffer);
 	    });
 	  }
@@ -33,8 +35,12 @@ App.Views.SoundModelView = Backbone.View.extend({
   		  var source = App.context.createBufferSource();
   		  source.buffer = pad.buffer;
   		  source.connect(App.context.destination);
+  		  analyser = App.context.createAnalyser();
+  		  source.connect(analyser);
+  		  analyser.connect(App.context.destination);
   		  source.start(0);
   		  pad.source = source;
+  		  frameLooper();
   		}
 	},
 	padStamp: function() {
