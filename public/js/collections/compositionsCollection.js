@@ -1,7 +1,5 @@
 App.Collections.CompositionsCollection = Backbone.Collection.extend({
-	initialize: function() {
-		console.log('COMP COLLECTION');
-	},
+	initialize: function() {},
 	model: App.Models.CompositionModel,
 	url: '/compositions'
 });

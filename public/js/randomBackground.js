@@ -17,4 +17,4 @@ var randomBackground = function(images) {
 	var randomIMG = images[randomNum].url;
 	$('body').css({'background':'url(' + randomIMG + ') no-repeat center center fixed',
 								'background-size':'cover'});
-}
+};

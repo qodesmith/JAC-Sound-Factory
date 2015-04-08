@@ -1,12 +1,6 @@
-// var timer 	 = null,
-// 		interval = 1000,
-// 		value		 = 0;
-
 var controls = {
 	recordingStatus: false,
 	playStatus: false,
-	// stopStatus: false,
-	// value: 0,
 	record: function() {
 		// Do not record during playback.
 		if(!controls.playStatus) {
@@ -28,7 +22,6 @@ var controls = {
 				if(App.compositionArray.length) {
 					compositionKeeper.removeSilence();
 					App.recordStart = null;
-
 				}
 			};
 
@@ -40,7 +33,6 @@ var controls = {
 
 			// Grey out play button
 			$('#play').toggleClass('playOff');
-
 		};
 	},
 	play: function() {
@@ -48,9 +40,7 @@ var controls = {
 			
 			// Change the playStatus to indicate currenty playing.
 			controls.playStatus = !controls.playStatus;
-
 			$('#play').toggleClass('playOn');
-
 			var composition = App.compositionArray;
 
 			// 'what', 'when', and 'i' get their values fromthe for
@@ -75,53 +65,10 @@ var controls = {
 				doSetTimeout(what, when, i);
 			};
 
-			// Gray out record button
-
 		} else if(controls.recordingStatus) {
 			// flash an X over the play button
 			// using the timeout function
-			console.log('Recording in session...')
 		};
-	},
-	play2: function() {
-		if(!controls.recordingStatus && !controls.playStatus && App.compositionArray.length) {
-			// Change the playStatus to indicate currenty playing.
-			controls.playStatus = !controls.playStatus;
-
-			$('#play').toggleClass('playOn');
-
-			var composition = App.compositionArray;
-
-			var doSetTimeout = function(what, when, i) {
-
-				var padStroke = setTimeout(function() {
-					console.log('New padStroke, #' + i);
-
-					// Play using the Web Audio API
-					$('#' + what)[0].play();
-					
-					if (i === composition.length - 1) {
-						controls.playStatus = !controls.playStatus;
-						$('#play').toggleClass('playOn');
-					};
-				}, when);
-			};
-
-			for(var i = 0; i < composition.length; i++) {
-				var when = composition[i].time;
-				var what = composition[i].id;
-
-				App.timeoutArray.push(doSetTimeout);
-				App.timeoutArray[i](what, when, i);
-			};
-
-		} else if(controls.recordingStatus) {
-			// flash an X over the play button
-			// using the timeout function
-			console.log('Recording in session...')
-		};
-
-
 	},
 	showModal: function() {
 		// Only save IF:
@@ -137,10 +84,8 @@ var controls = {
 
 			// Display the modal.
 			$('.modal').fadeIn(500);
-
 			$('[type = "submit"]').on('click', controls.save);
 		};
-
 	},
 	save: function() {
 		

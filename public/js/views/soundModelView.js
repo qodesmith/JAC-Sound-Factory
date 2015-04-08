@@ -28,17 +28,6 @@ App.Views.SoundModelView = Backbone.View.extend({
 	addAudioProperties: function(pad) {
   	pad.source = $(pad).find('.pad-name').data('sound');
   	this.loadAudio(pad, pad.source);
-// <<<<<<< HEAD
-//   		pad.play = function() {
-//   		  // var source = App.context.createBufferSource();
-//   		  // source.buffer = pad.buffer;
-//   		  // source.connect(App.context.destination);
-  		  
-//   		  source.start(0);
-//   		  pad.source = source;
-//   		}
-// =======
-  	// pad.loop = false;
   	pad.play = function() {
   		if(App.recordStart) {
 				var id = pad.id;
@@ -62,7 +51,3 @@ App.Views.SoundModelView = Backbone.View.extend({
  		}
 	},
 });
-
-
-
-

@@ -1,4 +1,4 @@
- var frameLooper = function(){
+var frameLooper = function() {
   window.webkitRequestAnimationFrame(frameLooper);
   fbc_array = new Uint8Array(analyser.frequencyBinCount);
   analyser.getByteFrequencyData(fbc_array);
@@ -9,7 +9,6 @@
     bar_x = i * 3;
     bar_width = 2;
     bar_height = -(fbc_array[i] / 2);
-    
     ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
-  }
-}
+  };
+};

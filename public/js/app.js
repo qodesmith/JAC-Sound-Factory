@@ -1,7 +1,8 @@
 $(function() {
-	console.log('application loaded');
+
 	App.context = new webkitAudioContext();
 	App.modal = new App.Views.ModalView();
+	
 	// Sounds - FX
 	App.soundsFXCollection = new App.Collections.SoundsFXCollection;
 	App.soundsFXCollectionView = new App.Views.SoundsFXCollectionView({collection: App.soundsFXCollection});
@@ -32,6 +33,7 @@ $(function() {
 	// $('#stop').on('click', controls.stop);
 	$('#save').on('click', controls.showModal);
 });
+
 var canvas, ctx, source, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
 var App = {
 	Models: {},
@@ -44,4 +46,3 @@ var App = {
 	currentFXBankID: null,
 	modalStatus: false
 };
-

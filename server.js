@@ -1,15 +1,15 @@
-var express        = require('express');
-var logger				 = require('morgan');
-var bodyParser		 = require('body-parser');
-var models				 = require('./models');
-var request				 = require('request');
+var express			= require('express');
+var logger			= require('morgan');
+var bodyParser	= require('body-parser');
+var models			= require('./models');
+var request			= require('request');
 
 var SoundBank   = models.sound_banks;
 var Sound       = models.sounds;
 var User        = models.users;
 var Composition = models.compositions;
 
-var app       = express()
+var app       	= express();
 
 app.use(logger('dev'));
 app.use(bodyParser());
