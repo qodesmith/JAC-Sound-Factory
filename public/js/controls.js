@@ -103,7 +103,7 @@ var controls = {
 			data: {user_name: userName}
 		}).done(function(res) {
 			console.log('After POST USER');
-			var userId = parseint(res.id);
+			var userId = parseInt(res.id);
 			$.ajax({
 				url:'/users/' + userId + '/compositions',
 				method: 'POST',
