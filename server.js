@@ -242,6 +242,14 @@ app.get('/users/:id/compositions', function (req, res) {
 	});
 });
 
+app.post('/composition', function (req,res) {
+	Composition
+		.create(req.body)
+		.then(function(comp) {
+			res.send(comp);
+		});
+});
+
 app.post('/users/:id/compositions', function (req, res) {
 	User
 	.findOne(req.params.id)
@@ -278,6 +286,7 @@ app.delete('/compositions/:id', function (req, res) {
 		});
 	});
 });
+
 ////////////////
 //   Random		//
 // Background //

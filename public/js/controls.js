@@ -102,10 +102,9 @@ var controls = {
 			method: 'POST',
 			data: {user_name: userName}
 		}).done(function(user) {
-			console.log('After POST USER');
 			var userId = parseInt(user.id);
 			$.ajax({
-				url:'/users/' + userId + '/compositions',
+				url:'/compositions',
 				method: 'POST',
 				data: {
 					fx_bank_id: App.currentFXBankID,
@@ -115,8 +114,8 @@ var controls = {
 					user_id: userId
 				}
 			}).done(function(data) {
-				console.log('COMPOSITION POST SUCCESS');
-				console.log(data);
+				// Refresh the composition collection to reflect new changes.
+				App.compositionsCollection.fetch();
 			});
 		});
 
