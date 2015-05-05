@@ -101,12 +101,11 @@ var controls = {
 			url: '/users',
 			method: 'POST',
 			data: {user_name: userName}
-		}).done(function(res) {
+		}).done(function(user) {
 			console.log('After POST USER');
-			var userId = parseInt(res.id);
-			debugger;
+			var userId = parseInt(user.id);
 			$.ajax({
-				url:'/users/' + userId + '/compositions',`
+				url:'/users/' + userId + '/compositions',
 				method: 'POST',
 				data: {
 					fx_bank_id: App.currentFXBankID,
