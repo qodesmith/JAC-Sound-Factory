@@ -114,9 +114,9 @@ var controls = {
 					name: compName,
 					user_id: userId
 				}
-			}).done(function(comp) {
+			}).done(function(data) {
 				console.log('COMPOSITION POST SUCCESS');
-				res.send(comp);
+				console.log(data);
 			});
 		});
 
