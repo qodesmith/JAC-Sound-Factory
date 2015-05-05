@@ -250,18 +250,19 @@ app.post('/compositions', function (req,res) {
 		});
 });
 
-app.post('/users/:id/compositions', function (req, res) {
-	User
-	.findOne(req.params.id)
-	.then(function(user){
-		Composition
-		.create(req.body)
-		.then(function(newComp){
-			user.addComposition(newComp)
-			res.send(newComp);
-		});
-	});
-});
+// ROUTE DEPRECATED
+// app.post('/users/:id/compositions', function (req, res) {
+// 	User
+// 	.findOne(req.params.id)
+// 	.then(function(user){
+// 		Composition
+// 		.create(req.body)
+// 		.then(function(newComp){
+// 			user.addComposition(newComp)
+// 			res.send(newComp);
+// 		});
+// 	});
+// });
 
 app.put('/compositions/:id', function (req, res) {
 	Composition
