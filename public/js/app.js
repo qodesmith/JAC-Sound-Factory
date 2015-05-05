@@ -32,8 +32,9 @@ $(function() {
 	$('#play').on('click', controls.play);
 	// $('#stop').on('click', controls.stop);
 	$('#save').on('click', controls.showModal);
+	console.log('APP ONLOAD FUNCTION')
 });
-
+console.log('APP FILE LOADED')
 var canvas, ctx, source, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
 var App = {
 	Models: {},

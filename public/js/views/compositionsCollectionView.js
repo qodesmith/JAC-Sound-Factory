@@ -8,6 +8,3 @@ App.Views.CompositionsView = Backbone.View.extend({
 	  this.$el.append(newCompositionView.el);
   }
 });
-
-
-

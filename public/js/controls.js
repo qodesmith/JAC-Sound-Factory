@@ -102,12 +102,12 @@ var controls = {
 			method: 'POST',
 			data: {user_name: userName}
 		}).done(function(user) {
-			var userId = parseInt(user.id);
+			var userId = user.id;
 			$.ajax({
 				url:'/compositions',
 				method: 'POST',
 				data: {
-					fx_bank_id: App.currentFXBankID || 4,
+					fx_bank_id: App.currentFXBankID || 4, // Default bank if none chosen.
 					drum_bank_id: App.currentDrumsBankID || 2,
 					composition: newComposition,
 					name: compName,
@@ -116,8 +116,8 @@ var controls = {
 			}).done(function(data) {
 				// Refresh the composition collection to reflect new changes.
 				App.compositionsCollection.fetch();
+				});
 			});
-		});
 
 		// Remove the dark background.
 		$('.modalBackground').hide();

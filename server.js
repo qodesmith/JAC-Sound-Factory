@@ -223,10 +223,24 @@ app.delete('/users/:id', function (req, res){
 // COMPOSITIONS //           
 //////////////////
 
+// Latest 8 compositions for the "Recent Sonic Awesomness" sidebar.
+app.get('/compositions/latest', function (req, res) {
+	Composition
+		.findAll()
+		.then(function(compositions) {
+			var length = compositions.length;
+			top8 = [];
+			for(var i = 1; i < 9; i ++) {
+				top8.push(compositions[length-i])
+			}
+			res.send(top8)
+		});
+});
+
 app.get('/compositions', function (req, res) {
 	Composition
 	.findAll()
-	.then(function(compositions){
+	.then(function(compositions) {
 		res.send(compositions);
 	});
 });
