@@ -104,8 +104,9 @@ var controls = {
 		}).done(function(res) {
 			console.log('After POST USER');
 			var userId = parseInt(res.id);
+			debugger;
 			$.ajax({
-				url:'/users/' + userId + '/compositions',
+				url:'/users/' + userId + '/compositions',`
 				method: 'POST',
 				data: {
 					fx_bank_id: App.currentFXBankID,
