@@ -242,7 +242,7 @@ app.get('/users/:id/compositions', function (req, res) {
 	});
 });
 
-app.post('/composition', function (req,res) {
+app.post('/compositions', function (req,res) {
 	Composition
 		.create(req.body)
 		.then(function(comp) {
