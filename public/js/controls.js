@@ -107,8 +107,8 @@ var controls = {
 				url:'/compositions',
 				method: 'POST',
 				data: {
-					fx_bank_id: App.currentFXBankID,
-					drum_bank_id: App.currentDrumsBankID,
+					fx_bank_id: App.currentFXBankID || 4,
+					drum_bank_id: App.currentDrumsBankID || 2,
 					composition: newComposition,
 					name: compName,
 					user_id: userId
