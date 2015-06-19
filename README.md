@@ -11,9 +11,13 @@ Cue: JAC SoundFactory!!
 
 The JAC SoundFactory is a composition medium that allows cyber-plebs to create music using a variety of sound libraries as instruments. Do you want to rehash Under Pressure using bathroom sounds? Is your life devoid of a barnyard animals-Katy Perry mashup? Is it Beethoven's 5th in lasers and explosions that you desire? Let JAC SoundFactory feed your exotic aural fetishes.
 
-JAC Soundfactory features the MDN Web Audio API which provides a sound management interface capable of producing 1000 sounds simultaneously without skipping.
+General Overview:
 
-Step 1 - ........TBC
+A sixteen pad sound sequencer. Users select from audio libraries to populate the sound pads with drum and sound effects of their choosing. Compositions can be recorded, saved and replayed.
+
+Tehcnical Overview:
+
+Features the Web Audio API, a browser based sound management and production interface capable of producing 1000 sounds simultaneously without skipping. Also allows for sound wave analysis for visualizer effects. Sound pads are populated via Node server to a Backbone frontend. Composition recording is produced with jQuery timestamping, allowing playback from a variety of sound library selections.
 
 
 
