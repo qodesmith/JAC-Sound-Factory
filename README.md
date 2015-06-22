@@ -15,7 +15,7 @@ General Overview:
 
 A sixteen pad sound sequencer. Users select from audio libraries to populate the sound pads with drum and sound effects of their choosing. Compositions can be recorded, saved and replayed.
 
-Tehcnical Overview:
+Technical Overview:
 
 Features the Web Audio API, a browser based sound management and production interface capable of producing 1000 sounds simultaneously without skipping. Also allows for sound wave analysis for visualizer effects. Sound pads are populated via Node server to a Backbone frontend. Composition recording is produced with jQuery timestamping, allowing playback from a variety of sound library selections.
 
